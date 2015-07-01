@@ -1,5 +1,11 @@
 <div class={{containerClass}}>
   <div class="navbar-header">
+    {{#if collapsable}}
+      <button type="button" class="md-collapse-btn {{if isCollapsed 'collapsed'}}" {{action "toggleCollapse"}}>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    {{/if}}
     {{#if title}}
       {{#if titlePath}}
         {{link-to title titlePath}}
@@ -9,10 +15,10 @@
     {{/if}}
   </div>
 
-  {{#if collapse}}
-    <div class="md-collapse navbar-collapse">
+  {{#if collapsable}}
+    {{#md-collapse class="navbar-collapse" show=isCollapsed}}
       {{yield}}
-    </div>
+    {{/md-collapse}}
   {{else}}
     {{yield}}
   {{/if}}

@@ -13,7 +13,10 @@ var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 var app = new EmberAddon({
   sassOptions: {
-    extension: 'scss'
+    extension: 'scss',
+    includePaths: [
+      'bower_components/bourbon/app/assets/stylesheets'
+    ]
   }
 });
 

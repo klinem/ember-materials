@@ -1,0 +1,63 @@
+$collapse-btn-color:        font-color(caption) !default;
+$collapse-btn-hover-color:  darken($collapse-btn-color, 20%) !default;
+$collapse-btn-active-color: palette-color($primary-palette) !default;
+
+.md-collapse-btn {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+  @include reset-button();
+
+  .icon-bar, &::before, &::after {
+    background: $collapse-btn-color;
+    display: block;
+    height: 2px;
+    width: 18px;
+  }
+
+  &:hover {
+    .icon-bar, &::before, &::after {
+      background: $collapse-btn-hover-color;
+    }
+  }
+
+  .icon-bar {
+    will-change: opacity, background;
+
+    @include transition(background 0.05s linear, opacity 0.08s cubic-bezier(.25, .8, .25, 1));
+
+    &:first-child {
+      margin-bottom: 10px;
+    }
+  }
+
+  &::before, &::after {
+    content: '';
+    margin-top: -1px;
+    position: absolute;
+    top: 50%;
+
+    will-change: transform, background;
+
+    @include transition(background 0.05s linear, transform 0.1s cubic-bezier(.25, .8, .25, 1));
+  }
+
+  &.collapsed {
+    .icon-bar, &::before, &::after {
+      background: $collapse-btn-active-color;
+    }
+
+    .icon-bar {
+      opacity: 0;
+    }
+
+    &::before {
+      transform: rotate(-45deg);
+      @include transform(rotate(-45deg));
+    }
+    &::after {
+      @include transform(rotate(45deg));
+    }
+  }
+}

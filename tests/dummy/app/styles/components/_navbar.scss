@@ -33,6 +33,10 @@ $navbar-collapse-btn-padding:      floor(($navbar-height - 14px) / 2) 16px;
     float: left;
   }
 
+  .navbar-header {
+    @include clearfix();
+  }
+
   .navbar-title {
     text-decoration: none;
     line-height: $navbar-link-line-height;
@@ -56,6 +60,55 @@ $navbar-collapse-btn-padding:      floor(($navbar-height - 14px) / 2) 16px;
 
     &.right {
       float: right;
+    }
+  }
+
+  .md-collapse-btn {
+    float: right;
+    padding: $navbar-collapse-btn-padding;
+  }
+}
+
+.md-navbar.collapsable {
+  @media (min-width: $navbar-breakpoint - 1px) {
+    .navbar-collapse {
+      &.md-collapse {
+        padding-bottom: 0;
+        overflow: visible !important;
+        display: block !important;
+        height: auto !important;
+      }
+
+      &.in {
+        overflow-y: visible;
+      }
+    }
+
+    .md-collapse-btn {
+      display: none;
+    }
+  }
+
+  @media (max-width: $navbar-breakpoint) {
+    .navbar-collapse, .navbar-header {
+      margin-left: -$gutter;
+      margin-right: -$gutter;
+    }
+    .navbar-header {
+      float: none !important;
+
+      .navbar-title {
+        padding: $navbar-collapse-title-padding;
+      }
+    }
+    .navbar-nav {
+      float: none !important;
+
+      > a {
+        line-height: $navbar-collapse-item-line-height;
+        padding: $navbar-collapse-item-padding;
+        float: none !important;
+      }
     }
   }
 }

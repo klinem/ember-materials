@@ -1,0 +1,7 @@
+@mixin reset-button($bg: none, $outline: 0, $padding: 0, $margin: 0, $border: none) {
+  background: $bg;
+  outline: $outline;
+  padding: $padding;
+  margin: $margin;
+  border: $border;
+}

@@ -1,0 +1,17 @@
+.md-collapse {
+  display: none;
+
+  &.in {
+    display: block;
+  }
+}
+
+.md-collapsing {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+
+  transition-property: height, visiblity;
+  transition-duration: 250ms;
+  transition-timing-function: ease;
+}

@@ -9,22 +9,12 @@ moduleForComponent('md-navbar', 'Unit | Component | md navbar', {
   unit: true
 });
 
-test('it renders', function(assert) {
-  assert.expect(2);
-
-  // Creates the component instance
-  var component = this.subject();
-  assert.equal(component._state, 'preRender');
-
-  // Renders the component to the page
-  this.render();
-  assert.equal(component._state, 'inDOM');
-});
-
 test('it renders the title if present', function(assert) {
-  assert.expect(4);
+  assert.expect(3);
 
-  var component = this.subject();
+  var component = this.subject({
+    collapsable: false
+  });
 
   this.render();
 
@@ -36,5 +26,4 @@ test('it renders the title if present', function(assert) {
 
   assert.equal($title.length, 1);
   assert.equal($title.text(), 'Example');
-  assert.equal($title[0].tagName, 'SPAN');
 });

@@ -7,6 +7,8 @@ export default Ember.Component.extend({
 
   classNames: ['md-navbar'],
 
+  classNameBindings: ['collapsable'],
+
   /**
    * @property fluid
    * @type Boolean
@@ -51,5 +53,18 @@ export default Ember.Component.extend({
    * @type Boolean
    * @default true
    */
-  collapse: true
+  collapsable: true,
+
+  /**
+   * @property isCollapsed
+   * @type Boolean
+   * @default false
+   */
+  isCollapsed: false,
+
+  actions: {
+    toggleCollapse() {
+      this.toggleProperty('isCollapsed');
+    }
+  }
 });
