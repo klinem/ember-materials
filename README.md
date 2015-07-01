@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/klinem/ember-materials.svg?branch=master)](https://travis-ci.org/klinem/ember-materials)
+[![Dependency Status](https://david-dm.org/klinem/ember-materials.svg)](https://david-dm.org/klinem/ember-materials)
+[![devDependency Status](https://david-dm.org/klinem/ember-materials/dev-status.svg)](https://david-dm.org/klinem/ember-materials#info=devDependencies)
+
 # Ember-materials
 
 This README outlines the details of collaborating on this Ember addon.
