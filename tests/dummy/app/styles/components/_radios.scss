@@ -1,0 +1,72 @@
+.md-radio {
+  white-space: nowrap;
+  display: inline-block;
+  margin: 8px 0;
+  position: relative;
+  line-height: 26px;
+  border-radius: 2px;
+  cursor: pointer !important;
+
+  padding-left: 18px;
+
+  .radio-container {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+
+    @include transform(translateY(-50%));
+  }
+
+  .md-label {
+    margin-left: 10px;
+  }
+
+  .md-icon {
+    &::before {
+      border-radius: 50%;
+      position: absolute;
+      content: '';
+      border: 2px solid #CCC;
+      height: 18px;
+      width: 18px;
+      left: 0;
+      top: 0;
+
+      //@include transition(border-color 50ms);
+    }
+    &::after {
+      border-radius: 50%;
+      background: transparent;
+      position: absolute;
+      content: '';
+      height: 18px;
+      width: 18px;
+
+      @include transform(scale(0));
+      @include transition(transform 250ms ease);
+    }
+  }
+
+  &.checked {
+    .md-icon {
+      &::before {
+        border-color: palette-color($alt-palette);
+      }
+
+      &::after {
+        background: palette-color($alt-palette);
+
+
+        @include transform(scale(.5));
+      }
+    }
+  }
+}
+
+.md-radio-group {
+  .md-radio {
+    margin-right: 20px;
+  }
+}

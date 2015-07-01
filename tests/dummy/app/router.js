@@ -13,6 +13,7 @@ Router.map(function() {
     this.route('navbar');
     this.route('modals');
     this.route('dialogs');
+    this.route('radios');
   });
 });
 

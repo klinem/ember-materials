@@ -1,25 +1,28 @@
 .doc-example {
   border-radius: 2px;
-  background: #eeeeee;
+  margin-bottom: 20px;
+  background: #f1f1f1;
   position: relative;
   padding: 40px 20px 20px;
-  border: 1px solid rgba(#000, 0.1);
-
-  .doc-example-body {
-    border-radius: 2px;
-    background: #f9f9f9;
-    overflow: hidden;
-    border: 1px solid rgba(#000, 0.1);
-  }
+  border: 1px solid rgba(0,0,0,.075);
 
   &::after {
     text-transform: uppercase;
     font-weight: 500;
-    font-size: 0.8em;
+    font-size: 11px;
     position: absolute;
-    content: 'Example';
+    content: "Example";
     color: #999;
     left: 10px;
     top: 10px;
+  }
+
+  .doc-example-body {
+    background-color: #F9F9F9;
+    min-height: 350px;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid $gray-border;
   }
 }
