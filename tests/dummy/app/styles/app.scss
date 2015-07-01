@@ -1,0 +1,23 @@
+@import "variables";
+@import "sidenav";
+@import "sidemenu";
+
+body {
+  background: $body-bg-color;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font: 13px/1.4 'Roboto', 'Helvetica Neue', 'Helvetica', arial, sans-serif;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+
+.app-container {
+
+  @media screen and (min-width: $sidenav-collapse-breapoint) {
+    padding-left: $sidenav-width;
+  }
+}

@@ -1,0 +1,37 @@
+$sidemenu-link-color: #333;
+$sidemenu-link-padding: 8px 16px;
+
+$sidemenu-nested-offset:       16px;
+$sidemenu-nested-link-padding: 8px 10px;
+
+.sidemenu-nav {
+  &, ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+    white-space: nowrap;
+    display: block;
+    color: $sidemenu-link-color;
+  }
+
+  > li {
+    > a {
+      font-weight: 500;
+      padding: $sidemenu-link-padding;
+      font-size: 14px;
+    }
+  }
+
+  .sidemenu-nested-nav {
+    margin-left: $sidemenu-nested-offset;
+
+    li {
+      > a {
+        padding: $sidemenu-nested-link-padding;
+      }
+    }
+  }
+}

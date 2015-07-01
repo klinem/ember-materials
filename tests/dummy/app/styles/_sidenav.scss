@@ -1,0 +1,27 @@
+.md-sidenav {
+  position: fixed;
+  background: $sidenav-bg-color;
+  width: $sidenav-width;
+  bottom: 0;
+  left: 0;
+  top: 0;
+
+  @if $sidenav-shadow != false {
+    box-shadow: $sidenav-shadow;
+  }
+
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(.25, .8, .25, 1);
+  transition: transform 200ms cubic-bezier(.25, .8, .25, 1);
+
+  @media screen and (max-width: $sidenav-collapse-breapoint) {
+    visibility: hidden;
+
+    transform: translateX(-($sidenav-width + 1px));
+
+    &.in {
+      visibility: visible;
+
+      transform: translateX(0);
+    }
+  }
+}

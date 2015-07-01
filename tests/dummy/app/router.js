@@ -6,6 +6,14 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('comps', { path: '/components' }, function() {
+    this.route('sidenav');
+    this.route('collapse');
+    this.route('buttons');
+    this.route('navbar');
+    this.route('modals');
+    this.route('dialogs');
+  });
 });
 
 export default Router;
