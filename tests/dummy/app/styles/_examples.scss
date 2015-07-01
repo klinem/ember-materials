@@ -1,0 +1,25 @@
+.doc-example {
+  border-radius: 2px;
+  background: #eeeeee;
+  position: relative;
+  padding: 40px 20px 20px;
+  border: 1px solid rgba(#000, 0.1);
+
+  .doc-example-body {
+    border-radius: 2px;
+    background: #f9f9f9;
+    overflow: hidden;
+    border: 1px solid rgba(#000, 0.1);
+  }
+
+  &::after {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.8em;
+    position: absolute;
+    content: 'Example';
+    color: #999;
+    left: 10px;
+    top: 10px;
+  }
+}

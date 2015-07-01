@@ -1,0 +1,20 @@
+@import "components/navbar";
+
+$navbar-default-variants:    true !default;
+
+$navbar-default-bg:          #FFFFFF !default;
+$navbar-default-title-color: font-color(caption) !default;
+
+$navbar-default-link-color:  font-color(caption) !default;
+$navbar-default-link-hover:  font-color(base) !default;
+$navbar-default-link-active: $primary-color !default;
+
+.doc-navbar {
+  @include navbar-variant(
+    $bg: $navbar-default-bg,
+    $color: $navbar-default-link-color,
+    $hoverColor: $navbar-default-link-hover,
+    $activeColor: $navbar-default-link-active,
+    $titleColor: $navbar-default-title-color,
+    $shadow: $shadow-depth-1);
+}

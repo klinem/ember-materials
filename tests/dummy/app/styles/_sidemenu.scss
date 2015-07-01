@@ -1,6 +1,8 @@
 $sidemenu-link-color: #333;
 $sidemenu-link-padding: 8px 16px;
 
+$sidemenu-link-active-color: $primary-color;
+
 $sidemenu-nested-offset:       16px;
 $sidemenu-nested-link-padding: 8px 10px;
 
@@ -15,6 +17,10 @@ $sidemenu-nested-link-padding: 8px 10px;
     white-space: nowrap;
     display: block;
     color: $sidemenu-link-color;
+
+    &.active {
+      color: $sidemenu-link-active-color;
+    }
   }
 
   > li {

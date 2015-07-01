@@ -1,0 +1,71 @@
+/**
+ * ====================
+ * Typography
+ * ====================
+**/
+
+$font-family-base:   'Roboto', 'Helvetica Neue', 'Helvetica', Arial, sans-serif !default;
+
+$line-height-base:   1.4 !default;
+
+$font-size-base:     font-size(body-1) !default;
+
+$em-base:            $font-size-base;
+
+/**
+ * ====================
+ * Icons
+ * ====================
+**/
+
+$icon-font-path: '/fonts' !default;
+
+/**
+ * ====================
+ * Colors
+ * ====================
+**/
+
+$body-bg:           #ffffff !default;
+
+$primary-palette:   $md-blue !default;
+$alt-palette:       $md-pink !default;
+
+$text-color-base:   font-color(body-1) !default;
+
+$gray-border:       #dde2e8 !default;
+
+$link-color:        palette-color($primary-palette) !default;
+$link-hover-color:  palette-color($primary-palette, 700) !default;
+
+/**
+ * ====================
+ * Breakpoints
+ * ====================
+**/
+
+$breakpoint-sm:     749px !default;
+$breakpoint-md:     969px !default;
+$breakpoint-lg:     1169px !default;
+
+/**
+ * ====================
+ * Grids
+ * ====================
+**/
+
+$gutter: 1rem !default;
+
+/**
+ * ====================
+ * Misc
+ * ====================
+**/
+
+$shadow-depth-1:         0 -1px 0 #e5e5e5, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.17) !default;
+$shadow-depth-2:         0 2px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.05) !default;
+$shadow-depth-3:         0 -1px 0 #e5e5e5, 0 0 5px rgba(0,0,0,.12), 0 4px 7px rgba(0,0,0,.17) !default;
+
+$radius-base:            2px !default;
+
+$component-class-prefix: 'md-' !default;

@@ -1,9 +1,14 @@
+@import "core/core";
 @import "variables";
+@import "mixins";
 @import "sidenav";
 @import "sidemenu";
+@import "examples";
+@import "navbar";
 
 body {
   background: $body-bg-color;
+  font-weight: 400;
   height: 100%;
   padding: 0;
   margin: 0;
@@ -14,10 +19,38 @@ body {
   box-sizing: border-box;
 }
 
+.doc-container {
+  padding: 0 $gutter-width;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.md-container-fluid {
+  padding: 0 $gutter;
+  width: 100%;
+
+  @include clearfix();
+}
 
 .app-container {
 
   @media screen and (min-width: $sidenav-collapse-breapoint) {
     padding-left: $sidenav-width;
+  }
+}
+
+.doc-header {
+  margin-bottom: 40px;
+  background: $primary-color;
+  padding: 20px $gutter-width;
+  color: #ffffff;
+
+  h2 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 2rem;
   }
 }

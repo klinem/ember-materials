@@ -1,0 +1,29 @@
+@mixin navbar-variant($bg, $color, $hoverColor, $activeColor: false, $titleColor: false, $shadow: false) {
+  background: $bg;
+
+  @if $shadow != false {
+    box-shadow: $shadow;
+  }
+
+  .navbar-nav {
+    > a {
+      color: $color;
+
+      &:hover {
+        color: $hoverColor
+      }
+
+      @if $activeColor != false {
+        &.active {
+          color: $activeColor;
+        }
+      }
+    }
+  }
+
+  @if $titleColor != false {
+    .navbar-title {
+      color: $titleColor;
+    }
+  }
+}

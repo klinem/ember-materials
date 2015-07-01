@@ -1,0 +1,19 @@
+<div class={{containerClass}}>
+  <div class="navbar-header">
+    {{#if title}}
+      {{#if titlePath}}
+        {{link-to title titlePath}}
+      {{else}}
+        <span class="navbar-title">{{title}}</span>
+      {{/if}}
+    {{/if}}
+  </div>
+
+  {{#if collapse}}
+    <div class="md-collapse navbar-collapse">
+      {{yield}}
+    </div>
+  {{else}}
+    {{yield}}
+  {{/if}}
+</div>

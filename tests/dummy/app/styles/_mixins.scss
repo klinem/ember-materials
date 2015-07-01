@@ -1,0 +1,9 @@
+@import "components/mixins/navbar";
+
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}

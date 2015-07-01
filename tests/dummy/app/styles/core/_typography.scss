@@ -1,0 +1,59 @@
+$font-sizes: (
+  base:      13px,
+  body-1:    13px,
+  body-2:    13px,
+  caption:   12px,
+  button:    14px,
+  subhead:   15px,
+  title:     20px,
+  headline:  24px,
+  display-1: 36px,
+  display-2: 45px,
+  display-3: 56px,
+  display-4: 112px
+) !default;
+
+/**
+ * Font Weights
+ */
+
+$font-weight-regular:   400 !default;
+$font-weight-medium:    500 !default;
+$font-weight-bold:      700 !default;
+
+$font-weights: (
+  base:      $font-weight-regular,
+  body-1:    $font-weight-regular,
+  body-2:    $font-weight-medium,
+  caption:   $font-weight-regular,
+  button:    $font-weight-medium,
+  subhead:   $font-weight-regular,
+  title:     $font-weight-medium,
+  headline:  $font-weight-medium,
+  display-1: $font-weight-regular,
+  display-2: $font-weight-regular,
+  display-3: $font-weight-regular,
+  display-4: $font-weight-regular
+) !default;
+
+/**
+ * Font Colours
+ */
+
+$black-base:     hsl(0, 0%, 13%) !default;
+$black-light:    hsl(0, 0%, 46%) !default;
+
+$font-colors: (
+  base:      $black-base,
+  body-1:    $black-base,
+  body-2:    $black-base,
+  caption:   $black-light,
+  button:    $black-base,
+  subhead:   $black-base,
+  title:     $black-base,
+  headline:  $black-base,
+  display-1: $black-light,
+  display-2: $black-light,
+  display-3: $black-light,
+  display-4: $black-light
+) !default;

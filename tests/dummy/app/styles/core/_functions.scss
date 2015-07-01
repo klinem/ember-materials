@@ -1,0 +1,15 @@
+@function palette-color($palette, $value: 500) {
+  @return map-get($palette, $value);
+}
+
+@function font-weight($type) {
+  @return map-get($font-weights, $type);
+}
+
+@function font-size($type) {
+  @return map-get($font-sizes, $type);
+}
+
+@function font-color($type) {
+  @return map-get($font-colors, $type);
+}
