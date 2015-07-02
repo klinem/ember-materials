@@ -1,7 +1,6 @@
 /* global hljs */
 import Ember from 'ember';
-
-const { $ } = Ember;
+import $ from 'jquery';
 
 export default Ember.Component.extend({
   classNames: ['code-block'],
