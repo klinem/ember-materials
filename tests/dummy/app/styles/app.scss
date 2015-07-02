@@ -5,11 +5,13 @@
 @import "sidenav";
 @import "sidemenu";
 @import "examples";
+@import "code-blocks";
 @import "navbar";
+@import "tables";
 
 
 .doc-container {
-  padding: 0 $gutter;
+  padding: 0 $doc-gutter;
   width: 100%;
 }
 
@@ -30,7 +32,7 @@
 .doc-header {
   margin-bottom: 40px;
   background: palette-color($primary-palette);
-  padding: 20px $gutter;
+  padding: 20px $doc-gutter;
   color: #ffffff;
 
   h2 {
@@ -47,6 +49,13 @@
   .doc-section-title {
     color: palette-color($primary-palette);
     margin: 0 0 40px;
+
+    @include font-styles(headline, true);
+  }
+
+  .doc-section-subtitle {
+    @include font-styles(title);
+    margin: 20px 0 20px;
   }
 
   &:not(:first-child) {
@@ -54,4 +63,14 @@
     padding-top: 40px;
     margin-top: 40px;
   }
+}
+
+:not(pre) code {
+  border-radius: 2px;
+  font-family: inherit;
+  font-weight: 500;
+  background: #E9E9E9;
+  font-size: 12px;
+  padding: 2px 4px;
+  color: palette-color($alt-palette);
 }

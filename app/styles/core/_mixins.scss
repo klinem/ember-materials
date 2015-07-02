@@ -1,0 +1,8 @@
+@mixin font-styles($type: base, $ignoreColor: false) {
+  font-weight: font-weight($type);
+  font-size: font-size($type);
+
+  @if $ignoreColor == false {
+    color: font-color($type);
+  }
+}

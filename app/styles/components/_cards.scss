@@ -1,0 +1,46 @@
+$card-bg:               #ffffff !default;
+$card-radius:           $radius-base !default;
+$card-shadow:           $shadow-depth-1 !default;
+$card-margin:           $gutter !default;
+
+$card-body-padding:     16px !default;
+
+$card-header-padding:   16px !default;
+
+$card-title-color:      font-color(title) !default;
+$card-title-font-size:  24px !default;
+
+$card-actions-padding:  8px !default;
+
+.md-card {
+  border-radius: $card-radius;
+  box-shadow: $card-shadow;
+  background: $card-bg;
+
+  @if $card-margin != false {
+    margin-bottom: $card-margin;
+  }
+
+  .card-body {
+    padding: $card-body-padding;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .card-header {
+    padding: $card-header-padding;
+
+    .card-title {
+      font-size: $card-title-font-size;
+      color: $card-title-color;
+    }
+  }
+
+  .card-actions {
+    padding: $card-actions-padding;
+
+    @include clearfix();
+  }
+}

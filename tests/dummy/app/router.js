@@ -14,6 +14,7 @@ Router.map(function() {
     this.route('modals');
     this.route('dialogs');
     this.route('radios');
+    this.route('tables');
   });
 });
 

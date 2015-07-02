@@ -1,0 +1,10 @@
+{{#if file}}
+  <span class="code-block-file">
+    {{file}}
+  </span>
+{{/if}}
+<pre>
+  <code class="{{lang}}" data-lang={{lang}}>
+    {{yield}}
+  </code>
+</pre>

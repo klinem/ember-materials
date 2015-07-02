@@ -1,0 +1,132 @@
+
+$table-th-font-size:     12px !default;
+$table-th-font-weight:   500 !default;
+$table-th-color:         hsl(0, 0%, 46%);
+
+$table-th-padding:       16px 12px !default;
+
+$table-td-font-size:     13px !default;
+$table-td-font-weight:   400 !default;
+$table-td-color:         hsl(0, 0%, 13%) !default;
+
+$table-td-hover-bg:      #eeeeee !default;
+
+$table-td-padding:       12px !default;
+
+$table-line-height:      24px !default;
+$table-border-color:     $gray-border !default;
+
+$table-th-sorted-color:  hsl(0, 0%, 13%) !default;
+
+.md-table {
+  width: 100%;
+
+  th, td {
+    line-height: $table-line-height;
+    vertical-align: middle;
+    text-align: left;
+    border: none;
+  }
+
+  th {
+    font-weight: $table-th-font-weight;
+    font-size: $table-th-font-size;
+    padding: $table-th-padding;
+    cursor: default;
+    color: $table-th-color;
+
+    &.sortable {
+      position: relative;
+      cursor: pointer;
+    }
+  }
+
+  td {
+    font-weight: $table-td-font-weight;
+    font-size: $table-td-font-size;
+    padding: $table-td-padding;
+    color: $table-td-color;
+  }
+
+  thead {
+    tr {
+      &:last-child {
+        th {
+          border-bottom: 1px solid $table-border-color;
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background-color: $table-td-hover-bg;
+      }
+
+      &:not(:first-child) {
+        td {
+          border-top: 1px solid $table-border-color;
+        }
+      }
+    }
+  }
+
+  th.sorted {
+    color: $table-th-sorted-color;
+
+    &:not(.text-right) {
+      &::after {
+        vertical-align: middle;
+        margin-left: 6px;
+        padding-top: 1px;
+        height: $table-line-height - 2px;
+      }
+
+      &:not(.descending) {
+        &::after {
+          //@include md-icon('expand_less', 18px);
+        }
+      }
+      &.descending {
+        &::after {
+          //@include md-icon('expand_more', 18px);
+        }
+      }
+    }
+
+    &.text-right {
+      &::before {
+        vertical-align: middle;
+        margin-right: 6px;
+        padding-top: 1px;
+        height: $table-line-height - 2px;
+      }
+
+      &:not(.descending) {
+        &::before {
+          //@include md-icon('expand_less', 18px);
+        }
+      }
+      &.descending {
+        &::before {
+          //@include md-icon('expand_more', 18px);
+        }
+      }
+    }
+  }
+}
+
+.md-table {
+  th, td {
+    &.table-action {
+      text-align: center;
+      width: 48px;
+
+    }
+    
+    .md-checkbox {
+      margin: 0 0 4px;
+    }
+  }
+}

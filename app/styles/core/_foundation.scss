@@ -12,3 +12,29 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: $link-color;
+
+  &:hover {
+    text-decoration: underline;
+    color: $link-hover-color;
+  }
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}

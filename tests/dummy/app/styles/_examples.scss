@@ -25,4 +25,8 @@
     position: relative;
     border: 1px solid $gray-border;
   }
+
+  .md-card:last-child {
+    margin-bottom: 0;
+  }
 }
