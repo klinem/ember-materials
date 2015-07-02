@@ -1,0 +1,28 @@
+$dialog-width:            400px !default;
+
+$dialog-body-font-size:   15px !default;
+$dialog-body-color:       $black-light !default;
+
+$dialog-actions-align:    right;
+
+.md-dialog {
+  .modal-content {
+    @media screen and (min-width: $modal-breakpoint) {
+      margin: $modal-margin auto;
+      width: $dialog-width;
+    }
+
+    .modal-body {
+      font-size: $dialog-body-font-size;
+      color: $dialog-body-color;
+    }
+
+    .modal-actions {
+      text-align: right;
+
+      .md-btn+.md-btn {
+        margin-left: 4px;
+      }
+    }
+  }
+}

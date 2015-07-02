@@ -1,0 +1,35 @@
+<section class="doc-section" id="examples">
+  <h2 class="doc-section-title">
+    Examples
+  </h2>
+
+  <div class="doc-example">
+    <div class="md-card">
+      <div class="card-body">
+        <button type="button" disabled={{showModal}} class="md-btn primary" {{action "toggle"}}>
+          Show
+        </button>
+
+        {{#md-modal show=showModal}}
+          <div class="modal-header">
+            <h2 class="modal-title">
+              Example
+            </h2>
+          </div>
+          <div class="modal-body">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore id magni veniam obcaecati cupiditate,
+              minima rem debitis voluptatum officia nostrum, alias cum! Non earum sequi, impedit,
+              eius dignissimos est mollitia.
+            </p>
+          </div>
+          <div class="modal-actions text-right">
+            <button type="button" class="md-btn primary" {{action "toggle"}}>
+              Close
+            </button>
+          </div>
+        {{/md-modal}}
+      </div>
+    </div>
+  </div>
+</section>

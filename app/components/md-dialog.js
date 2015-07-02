@@ -1,0 +1,1 @@
+export { default } from 'ember-materials/components/md-dialog';

@@ -1,0 +1,37 @@
+@mixin reset-button($bg: none, $outline: 0, $padding: 0, $margin: 0, $border: none) {
+  background: $bg;
+  outline: $outline;
+  padding: $padding;
+  margin: $margin;
+  border: $border;
+}
+
+@mixin button-variant($hoverBg, $activeBg: false, $color: false, $bg: false, $ripple: false) {
+  @if $color != false {
+    color: $color;
+  }
+
+  @if $bg != false {
+    background: $bg;
+  }
+
+  &:hover, &:focus {
+    background: $hoverBg;
+  }
+
+  &:not(.rippled):active {
+    @if $activeBg != false {
+      $activeBg: darken($hoverBg, 5%);
+    }
+
+    background: $activeBg;
+  }
+
+  .md-ripple {
+    @if $ripple == false {
+      $ripple: rgba(darken($hoverBg, 5%), 0.8);
+    }
+
+    background: $ripple;
+  }
+}

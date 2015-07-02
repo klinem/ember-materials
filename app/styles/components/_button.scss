@@ -1,0 +1,188 @@
+$btn-radius:                $radius-base !default;
+$btn-padding:               4px 10px !default;
+$btn-min-width:             60px !default;
+$btn-line-height:           28px !default;
+
+$btn-disabled-color:        rgba(#000, .26) !default;
+
+.md-btn {
+  text-decoration: none !important;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: $btn-radius;
+  line-height: $btn-line-height;
+  white-space: nowrap;
+  text-align: center;
+  min-width: $btn-min-width;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+  @include reset-button($padding: $btn-padding);
+
+  @include font-styles(button);
+  @include user-select(none);
+  @include transition(#{
+    background 400ms cubic-bezier(.25, .8, .25, 1)
+  });
+
+  &:hover {
+    color: inherit;
+  }
+
+  &.disabled, &[disabled] {
+    cursor: not-allowed;
+    color: $btn-disabled-color !important;
+
+    &:hover, &:focus, &:active {
+      background: none !important;
+    }
+  }
+
+  /* &.raised {
+    box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0,0,0,.12), 0 1px 4px rgba(0,0,0,.27);
+
+    @include transition(#{
+      background 400ms cubic-bezier(.25, .8, .25, 1),
+      box-shadow 400ms cubic-bezier(.20, .8, .20, 1)
+    });
+
+    &:not(.disabled), &:not([disabled]) {
+      &:hover, &:focus {
+        box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0,0,0,.12), 0 1px 5px rgba(0,0,0,.30);
+      }
+
+      &:active {
+        box-shadow: 0 -1px 0 #e5e5e5, 0 0 5px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.30);
+      }
+    }
+
+    &.disabled, &[disabled] {
+      background: hsl(0, 0%, 88%) !important;
+    }
+  }
+
+  > span {
+    position: relative;
+    z-index: 2;
+  }
+
+  @include prefixed('ripple-wrapper') {
+    border-radius: $btn-radius;
+    overflow: hidden;
+  } */
+}
+
+$btn-default-variants:         true !default;
+
+$btn-default-hover-bg:         rgba(#999, 0.2) !default;
+$btn-default-active-bg:        rgba(#999, 0.4) !default;
+$btn-default-ripple:           rgba(#999, 0.25) !default;
+
+$btn-default-raised-bg:        #E0E0E0!default;
+$btn-default-raised-hover-bg:  darken($btn-default-raised-bg, 2%) !default;
+$btn-default-raised-active-bg: false !default;
+
+$btn-primary-color:            palette-color($primary-palette) !default;
+$btn-primary-hover-bg:         palette-color($primary-palette, 50) !default;
+$btn-primary-active-bg:        false !default;
+$btn-primary-ripple:           rgba(palette-color($primary-palette, 100), 0.6) !default;
+
+$btn-primary-raised-color:     #FFFFFF !default;
+$btn-primary-raised-bg:        palette-color($primary-palette) !default;
+$btn-primary-raised-hover-bg:  palette-color($primary-palette, 600) !default;
+$btn-primary-raised-active-bg: palette-color($primary-palette, 700) !default;
+
+$btn-alt-color:                palette-color($alt-palette) !default;
+$btn-alt-hover-bg:             palette-color($alt-palette, 50) !default;
+$btn-alt-active-bg:            false !default;
+$btn-alt-ripple:               rgba(palette-color($alt-palette, 100), 0.6) !default;
+
+$btn-alt-raised-color:         #FFFFFF !default;
+$btn-alt-raised-bg:            palette-color($alt-palette) !default;
+$btn-alt-raised-hover-bg:      palette-color($alt-palette, 600) !default;
+$btn-alt-raised-active-bg:     palette-color($alt-palette, 700) !default;
+
+$btn-warning-color:            palette-color($md-orange) !default;
+$btn-warning-hover-bg:         palette-color($md-orange, 50) !default;
+$btn-warning-active-bg:        false !default;
+$btn-warning-ripple:           rgba(palette-color($md-orange, 100), 0.6) !default;
+
+$btn-warning-raised-color:     #FFFFFF !default;
+$btn-warning-raised-bg:        palette-color($md-orange) !default;
+$btn-warning-raised-hover-bg:  palette-color($md-orange, 600) !default;
+$btn-warning-raised-active-bg: palette-color($md-orange, 700) !default;
+
+$btn-danger-color:             palette-color($md-red) !default;
+$btn-danger-hover-bg:          palette-color($md-red, 50) !default;
+$btn-danger-active-bg:         false !default;
+$btn-danger-ripple:            rgba(palette-color($md-red, 200), 0.4) !default;
+
+$btn-danger-raised-color:      #FFFFFF !default;
+$btn-danger-raised-bg:         palette-color($md-red) !default;
+$btn-danger-raised-hover-bg:   palette-color($md-red, 600) !default;
+$btn-danger-raised-active-bg:  palette-color($md-red, 700) !default;
+
+@if $btn-default-variants == true {
+  .md-btn {
+    &:not(.raised) {
+      &.default {
+        @include button-variant(
+          $hoverBg: $btn-default-hover-bg,
+          $activeBg: $btn-default-active-bg,
+          $ripple: $btn-default-ripple);
+      }
+      &.primary {
+        @include button-variant(
+          $hoverBg: $btn-primary-hover-bg,
+          $activeBg: $btn-primary-active-bg,
+          $color: $btn-primary-color,
+          $ripple: $btn-primary-ripple);
+      }
+      &.alt {
+        @include button-variant(
+          $hoverBg: $btn-alt-hover-bg,
+          $activeBg: $btn-alt-active-bg,
+          $color: $btn-alt-color,
+          $ripple: $btn-alt-ripple);
+      }
+      &.warning {
+        @include button-variant(
+          $hoverBg: $btn-warning-hover-bg,
+          $activeBg: $btn-warning-active-bg,
+          $color: $btn-warning-color,
+          $ripple: $btn-warning-ripple);
+      }
+      &.danger {
+        @include button-variant(
+          $hoverBg: $btn-danger-hover-bg,
+          $activeBg: $btn-danger-active-bg,
+          $color: $btn-danger-color,
+          $ripple: $btn-danger-ripple);
+      }
+    }
+
+    &.raised {
+      &.default {
+        @include button-variant($btn-default-raised-hover-bg, $btn-default-raised-active-bg,
+          $bg: $btn-default-raised-bg);
+      }
+      &.primary {
+        @include button-variant($btn-primary-raised-hover-bg, $btn-primary-raised-active-bg,
+          $btn-primary-raised-color, $btn-primary-raised-bg);
+      }
+      &.alt {
+        @include button-variant($btn-alt-raised-hover-bg, $btn-alt-raised-active-bg,
+          $btn-alt-raised-color, $btn-alt-raised-bg);
+      }
+      &.warning {
+        @include button-variant($btn-warning-raised-hover-bg, $btn-warning-raised-active-bg,
+          $btn-warning-raised-color, $btn-warning-raised-bg);
+      }
+      &.danger {
+        @include button-variant($btn-danger-raised-hover-bg, $btn-danger-raised-active-bg,
+          $btn-danger-raised-color, $btn-danger-raised-bg);
+      }
+    }
+  }
+}

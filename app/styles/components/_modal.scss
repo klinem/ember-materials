@@ -1,0 +1,97 @@
+$modal-backdrop-bg:       #000000 !default;
+$modal-backdrop-opacity:  0.2 !default;
+$modal-backdrop-zindex:   1040 !default;
+
+$modal-zindex:            1050 !default;
+$modal-radius:            $radius-base !default;
+$modal-bg:                #ffffff !default;
+$modal-shadow:            0 3px 10px rgba(#000, 0.25) !default;
+$modal-width:             600px !default;
+$modal-margin:            30px !default;
+$modal-breakpoint:        $breakpoint-sm !default;
+
+$modal-body-padding:      16px !default;
+$modal-actions-padding:   8px !default;
+$modal-header-padding:    16px 16px 0 !default;
+
+$modal-title-font-size:   20px;
+$modal-title-font-weight: 500;
+$modal-title-color:       font-color(title);
+
+.md-backdrop {
+  background: $modal-backdrop-bg;
+  position: fixed;
+  z-index: $modal-backdrop-zindex;
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+
+  @include transition(opacity 150ms ease);
+
+  &.in {
+    opacity: $modal-backdrop-opacity;
+  }
+}
+
+.md-modal {
+  overflow: hidden;
+  position: fixed;
+  display: none;
+  z-index: $modal-zindex;
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+
+  @include transition(opacity 150ms ease);
+
+  .modal-content {
+    border-radius: $modal-radius;
+    background: $modal-bg;
+    box-shadow: $modal-shadow;
+    margin: $modal-margin $gutter;
+
+    @include transform(translate(0, -25%));
+    @include transition(transform 150ms ease);
+
+    @media screen and (min-width: $modal-breakpoint) {
+      margin: $modal-margin auto;
+      width: $modal-width;
+    }
+  }
+
+  &.in {
+    opacity: 1;
+    display: block;
+
+    .modal-content {
+      @include transform(translate(0,0));
+    }
+  }
+}
+
+.modal-content {
+
+  .modal-header {
+    padding: $modal-header-padding;
+
+    .modal-title {
+      font-weight: $modal-title-font-weight;
+      font-size: $modal-title-font-size;
+      color: $modal-title-color;
+    }
+  }
+
+  .modal-body {
+    padding: $modal-body-padding;
+  }
+
+  .modal-actions {
+    padding: $modal-actions-padding;
+
+    @include clearfix();
+  }
+}

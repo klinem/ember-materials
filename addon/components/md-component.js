@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { run } = Ember;
+const { run, RSVP, typeOf } = Ember;
 
 export function transitionSupport() {
   let el = document.createElement('mdTransition');
@@ -23,12 +23,14 @@ export function transitionSupport() {
 const transitionEvent = transitionSupport();
 
 export default Ember.Component.extend({
-  onTransitionEnd(callback) {
+  onTransitionEnd(callback, $element) {
     let finish = () => {
       run(this, callback);
     };
 
-    let $element = this.$();
+    if (!$element) {
+      $element = this.$();
+    }
 
     if ( transitionEvent ) {
       $element.one(transitionEvent, () => {
@@ -41,4 +43,33 @@ export default Ember.Component.extend({
 
     return this;
   },
+
+  resolveEvent(eventName) {
+    if ( this.attrs[eventName] && typeOf(this.attrs[eventName]) === 'function' ) {
+      return this.attrs[eventName]();
+    }
+    return false;
+  },
+
+  resolveEventAsync(eventName, strict = false) {
+    return new RSVP.Promise((resolve, reject) => {
+      if ( this.attrs[eventName] && typeOf(this.attrs[eventName]) === 'function' ) {
+        let res = this.attrs[eventName]();
+
+        if ( typeOf( res ) === 'boolean' ) {
+          return !!res ? resolve() : reject();
+        } else if ( typeOf( res ) === 'object' && res.then ) {
+          return res.then(resolve, reject);
+        } else {
+          return resolve();
+        }
+      } else {
+        if ( strict ) {
+          return reject();
+        } else {
+          return resolve();
+        }
+      }
+    });
+  }
 });

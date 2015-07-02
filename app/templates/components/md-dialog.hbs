@@ -1,0 +1,13 @@
+<div class="modal-content">
+  <div class="modal-body">
+    {{yield}}
+  </div>
+  <div class="modal-actions">
+    <button class="md-btn primary" disabled={{cancelDisabled}} {{action "cancel"}}>
+      Cancel
+    </button>
+    <button class="md-btn primary" disabled={{confirmDisabled}} {{action "confirm"}}>
+      Confirm
+    </button>
+  </div>
+</div>
