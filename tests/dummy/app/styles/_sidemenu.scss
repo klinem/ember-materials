@@ -1,7 +1,7 @@
 $sidemenu-link-color: #333;
 $sidemenu-link-padding: 8px 16px;
 
-$sidemenu-link-active-color: $primary-color;
+$sidemenu-link-active-color: palette-color($primary-palette);
 
 $sidemenu-nested-offset:       16px;
 $sidemenu-nested-link-padding: 8px 10px;

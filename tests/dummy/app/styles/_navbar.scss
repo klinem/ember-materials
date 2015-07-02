@@ -5,7 +5,7 @@ $navbar-default-title-color: font-color(caption) !default;
 
 $navbar-default-link-color:  font-color(caption) !default;
 $navbar-default-link-hover:  font-color(base) !default;
-$navbar-default-link-active: $primary-color !default;
+$navbar-default-link-active: palette-color($primary-palette) !default;
 
 .doc-navbar {
   @include navbar-variant(

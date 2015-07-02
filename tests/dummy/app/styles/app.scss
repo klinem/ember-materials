@@ -1,32 +1,16 @@
-@import "core/core";
 @import "variables";
-@import "mixins";
-@import "components";
+@import "materials";
+
+
 @import "sidenav";
 @import "sidemenu";
 @import "examples";
 @import "navbar";
 
-body {
-  background: $body-bg-color;
-  font-weight: 400;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  font: 13px/1.4 'Roboto', 'Helvetica Neue', 'Helvetica', arial, sans-serif;
-}
-
-*, *::after, *::before {
-  box-sizing: border-box;
-}
 
 .doc-container {
-  padding: 0 $gutter-width;
+  padding: 0 $gutter;
   width: 100%;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
 }
 
 .md-container-fluid {
@@ -45,8 +29,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .doc-header {
   margin-bottom: 40px;
-  background: $primary-color;
-  padding: 20px $gutter-width;
+  background: palette-color($primary-palette);
+  padding: 20px $gutter;
   color: #ffffff;
 
   h2 {

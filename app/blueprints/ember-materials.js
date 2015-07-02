@@ -1,0 +1,1 @@
+export { default } from 'ember-materials/blueprints/ember-materials';
