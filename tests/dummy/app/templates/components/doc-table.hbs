@@ -1,0 +1,26 @@
+<thead>
+  <tr>
+    {{#each tableHeaders as |header|}}
+      <th>{{header}}</th>
+    {{/each}}
+  </tr>
+</thead>
+<tbody>
+  {{#if hasBlock}}
+    {{yield}}
+  {{else}}
+    {{#each rows as |row|}}
+      <tr>
+        {{#each row as |cell|}}
+          <td>
+            {{#if cell.isCode}}
+              <code>{{cell.text}}</code>
+            {{else}}
+              {{cell.text}}
+            {{/if}}
+          </td>
+        {{/each}}
+      </tr>
+    {{/each}}
+  {{/if}}
+</tbody>

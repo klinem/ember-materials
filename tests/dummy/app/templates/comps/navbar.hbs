@@ -21,48 +21,38 @@
   </h3>
 
   <div class="md-card">
-    <table class="md-table doc-table">
-      <thead>
-        <tr>
-          <th>Parameter</th>
-          <th>Type</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>collapsable</td>
-          <td><code>Boolean</code></td>
-          <td><code>true</code></td>
-          <td>
-            If true, the navbar contents will render inside an <code>md-collapse</code>
-            component, causing it to collapse at a certain breakpoint
-          </td>
-        </tr>
-        <tr>
-          <td>title</td>
-          <td><code>String</code></td>
-          <td><code>null</code></td>
-          <td>Used to render the title for the navbar</td>
-        </tr>
-        <tr>
-          <td>titlePath</td>
-          <td><code>String</code></td>
-          <td><code>null</code></td>
-          <td>If passed, the navbar title will created a link to the specified route</td>
-        </tr>
-        <tr>
-          <td>fluid</td>
-          <td><code>Boolean</code></td>
-          <td><code>false</code></td>
-          <td>
-            Determines if the contents should be wrapped in an <code>.md-container</code>
-            or <code>.md-container-fluid</code> classed div
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    {{#doc-table}}
+      <tr>
+        <td>collapsable</td>
+        <td><code>Boolean</code></td>
+        <td><code>true</code></td>
+        <td>
+          If true, the navbar contents will render inside an <code>md-collapse</code>
+          component, causing it to collapse at a certain breakpoint
+        </td>
+      </tr>
+      <tr>
+        <td>title</td>
+        <td><code>String</code></td>
+        <td><code>null</code></td>
+        <td>Used to render the title for the navbar</td>
+      </tr>
+      <tr>
+        <td>titlePath</td>
+        <td><code>String</code></td>
+        <td><code>null</code></td>
+        <td>If passed, the navbar title will created a link to the specified route</td>
+      </tr>
+      <tr>
+        <td>fluid</td>
+        <td><code>Boolean</code></td>
+        <td><code>false</code></td>
+        <td>
+          Determines if the contents should be wrapped in an <code>.md-container</code>
+          or <code>.md-container-fluid</code> classed div
+        </td>
+      </tr>
+    {{/doc-table}}
   </div>
 
 </div>
@@ -88,8 +78,17 @@
   </div>
 </section>
 
-<section class="doc-section" id="scss">
+<section class="doc-section" id="sass">
   <h2 class="doc-section-title">
     SASS
   </h2>
+
+  <h3 class="doc-section-subtitle">
+    Variables
+  </h3>
+
+  <div class="md-card">
+    {{doc-table headers="variable, default, description" list=sassVariables}}
+  </div>
+
 </section>

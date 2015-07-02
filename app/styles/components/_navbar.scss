@@ -3,7 +3,7 @@ $navbar-height:                    50px !default;
 $navbar-link-line-height:          $navbar-height !default;
 $navbar-link-padding-v:            0 !default;
 $navbar-link-padding-h:            8px !default;
-$navbar-link-padding:              $navbar-link-padding-v $navbar-link-padding-h !default;
+$navbar-link-padding:              0 8px !default;
 
 $navbar-link-font-weight:          400 !default;
 $navbar-link-font-size:            13px !default;
@@ -11,11 +11,9 @@ $navbar-link-font-size:            13px !default;
 $navbar-title-font-weight:         500 !default;
 $navbar-title-font-size:           16px !default;
 
-$navbar-title-padding:             $navbar-link-padding-v $navbar-link-padding-h $navbar-link-padding-v 0 !default;
+$navbar-title-padding:             0 8px 0 0 !default;
 
 $navbar-breakpoint:                $breakpoint-md !default;
-
-$navbar-side-drawer-width:         240px !default;
 
 $navbar-collapse-item-line-height: 20px !default;
 $navbar-collapse-item-padding:     8px 16px !default;

@@ -2,6 +2,10 @@ module.exports = {
   normalizeEntityName: function() {},
 
   afterInstall: function() {
-    return this.addPackageToProject('ember-cli-sass');
+    var self = this;
+
+    return this.addBowerPackageToProject('bourbon').then(function() {
+      return self.addPackageToProject('ember-cli-sass');
+    });
   }
 };
