@@ -39,7 +39,7 @@ $btn-disabled-color:        rgba(#000, .26) !default;
     }
   }
 
-  /* &.raised {
+  &.raised {
     box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0,0,0,.12), 0 1px 4px rgba(0,0,0,.27);
 
     @include transition(#{
@@ -66,7 +66,7 @@ $btn-disabled-color:        rgba(#000, .26) !default;
     position: relative;
     z-index: 2;
   }
-
+/*
   @include prefixed('ripple-wrapper') {
     border-radius: $btn-radius;
     overflow: hidden;

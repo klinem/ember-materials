@@ -8,6 +8,8 @@ export default MdComponent.extend(BackdropMixin, {
   classNames: ['md-modal'],
   classNameBindings: ['in'],
 
+  ariaRole: 'dialog',
+
   show: false,
 
   transitioning: false,
