@@ -2,7 +2,11 @@
   <span class="md-icon"></span>
 </div>
 {{#if hasBlock}}
-  <div class="md-label">
+  <span class="md-label">
     {{yield}}
-  </div>
+  </span>
+{{else}}
+  {{#if label}}
+    <span class="md-label">{{label}}</span>
+  {{/if}}
 {{/if}}

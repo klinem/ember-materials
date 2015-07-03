@@ -1,11 +1,12 @@
 .md-radio {
-  white-space: nowrap;
-  display: inline-block;
-  margin: 8px 0;
-  position: relative;
-  line-height: 26px;
   border-radius: 2px;
+  line-height: 26px;
+  white-space: nowrap;
+  position: relative;
+  display: inline-block;
   cursor: pointer !important;
+  margin: 8px 0;
+  outline: none;
 
   padding-left: 18px;
 
@@ -17,6 +18,18 @@
     height: 18px;
 
     @include transform(translateY(-50%));
+
+    &::before {
+      border-radius: 50%;
+      background: transparent;
+      position: absolute;
+      content: '';
+      height: 18px;
+      width: 18px;
+
+      @include transform(scale(0));
+      @include transition(all 250ms ease);
+    }
   }
 
   .md-label {
@@ -60,6 +73,34 @@
 
 
         @include transform(scale(.5));
+      }
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed !important;
+
+    .md-label {
+      color: $black-light;
+    }
+
+    .md-icon {
+      border-color: #eee;
+    }
+  }
+
+  &.md-focused:not(.disabled) {
+    .radio-container {
+      &::before {
+        background: rgba(#000, .08);
+
+        @include transform(scale(1.8));
+      }
+    }
+
+    &.checked {
+      .radio-container::before {
+        background: rgba(palette-color($alt-palette), .125);
       }
     }
   }

@@ -20,6 +20,7 @@ var app = new EmberAddon({
   }
 });
 
+
 app.import('vendor/scripts/highlight.pack.js');
 
 module.exports = app.toTree();

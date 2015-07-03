@@ -1,4 +1,28 @@
-<div class="doc-section" id="examples">
+<section class="doc-section" id="usage">
+  <h2 class="doc-section-title">
+    Usage
+  </h2>
+
+{{#code-block lang="handlebars"}}
+&#60;!-- optional --&#62;
+&#123;&#123;#md-checkbox-group&#125;&#125;
+  &#123;&#123;#md-checkbox value=isEnabled&#125;&#125;
+    Label
+  &#123;&#123;/md-checkbox&#125;&#125;
+&#123;&#123;/md-checkbox-group&#125;&#125;
+{{/code-block}}
+
+  <h3 class="doc-section-subtitle">
+    Attributes
+  </h3>
+
+  <div class="md-card">
+    {{doc-table list=checkboxAttributes}}
+  </div>
+
+</section>
+
+<section class="doc-section" id="examples">
   <h2 class="doc-section-title">
     Examples
   </h2>
@@ -7,7 +31,7 @@
     <div class="md-card">
       <div class="card-body">
         {{#md-checkbox-group class="inline"}}
-          {{#md-checkbox ariaLabel="Word" tabindex="0" id="default"}}
+          {{#md-checkbox ariaLabel="Word" value=isEnabled tabindex="0" id="default"}}
             Default
           {{/md-checkbox}}
 
@@ -20,4 +44,4 @@
       </div>
     </div>
   </div>
-</div>
+</section>

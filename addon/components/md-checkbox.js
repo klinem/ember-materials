@@ -3,8 +3,7 @@ import Ember from 'ember';
 const { computed, on, run, typeOf } = Ember;
 
 export default Ember.Component.extend({
-  classNames: ['md-checkbox'],
-  classNameBindings: ['checked', 'isDisabled', 'focused:md-focused'],
+  classNameBindings: ['mdClass', 'checked', 'isDisabled', 'focused:md-focused'],
 
   attributeBindings: [
     'ariaDisabled:aria-disabled',
@@ -22,6 +21,8 @@ export default Ember.Component.extend({
       .on('blur', () => this.blur())
       .on('keypress', (e) => this.keydown(e));
   }),
+
+  mdClass: 'md-checkbox',
 
   /**
    * @property value
@@ -70,7 +71,7 @@ export default Ember.Component.extend({
    * @default false
    */
   ariaDisabled: computed('isDisabled', function() {
-    return !!this.get('disabled') ? true : null;
+    return !!this.get('isDisabled') ? true : null;
   }),
 
   /**
@@ -93,6 +94,10 @@ export default Ember.Component.extend({
     }
   }),
 
+  setValue() {
+    this.toggleProperty('value');
+  },
+
   /**
    * @method keydown
    */
@@ -100,10 +105,8 @@ export default Ember.Component.extend({
     let key = e.which || e.keyCode;
 
     if ((key === 13 || key === 32) && !this.get('isDisabled')) {
-      this.setProperties({
-        focused: true,
-        value: !this.get('value')
-      });
+      this.setProperties('focused', true);
+      this.setValue();
     }
   },
 
@@ -128,7 +131,7 @@ export default Ember.Component.extend({
    */
   click() {
     if (!this.get('isDisabled')) {
-      this.toggleProperty('value');
+      this.setValue();
     }
   },
 

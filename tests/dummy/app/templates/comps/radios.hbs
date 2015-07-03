@@ -23,6 +23,20 @@
             Female
           {{/md-radio}}
         {{/md-radio-group}}
+
+        <span>Number: <strong>{{number}}</strong></span>
+
+        {{#md-radio-group model=number}}
+          {{#md-radio value="one"}}
+            One
+          {{/md-radio}}
+          {{#md-radio value="two"}}
+            Two
+          {{/md-radio}}
+          {{#md-radio value="three" disabled=true}}
+            Three
+          {{/md-radio}}
+        {{/md-radio-group}}
       </div>
     </div>
   </div>
