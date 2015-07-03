@@ -7,13 +7,14 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('comps', { path: '/components' }, function() {
-    this.route('sidenav');
-    this.route('collapse');
     this.route('buttons');
+    this.route('checkboxes');
+    this.route('collapse');
     this.route('navbar');
     this.route('modals');
     this.route('dialogs');
     this.route('radios');
+    this.route('sidenav');
     this.route('tables');
   });
 });

@@ -1,0 +1,12 @@
+<div class="checkbox-container">
+  <span class="md-icon"></span>
+</div>
+{{#if hasBlock}}
+  <span class="md-label">
+    {{yield}}
+  </span>
+{{else}}
+  {{#if label}}
+    <span class="md-label">{{label}}</span>
+  {{/if}}
+{{/if}}

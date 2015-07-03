@@ -6,6 +6,8 @@ export default Ember.Component.extend({
   classNames: ['md-radio'],
   classNameBindings: ['isSelected:checked'],
 
+  ariaRole: 'radio',
+
   isSelected: computed('parentView.model', 'value', function() {
     return this.get('parentView.model') === this.get('value');
   }),

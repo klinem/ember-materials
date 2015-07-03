@@ -1,0 +1,118 @@
+.md-checkbox {
+  border-radius: 2px;
+  white-space: nowrap;
+  line-height: 26px;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  margin: 8px 0;
+  cursor: pointer !important;
+
+  padding-left: 18px;
+
+  .checkbox-container {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+
+    @include transform(translateY(-50%));
+
+    &::before {
+      border-radius: 50%;
+      background: transparent;
+      position: absolute;
+      content: '';
+      height: 18px;
+      width: 18px;
+
+      @include transform(scale(0));
+      @include transition(all 250ms ease);
+    }
+  }
+
+  .md-label {
+    margin-left: 10px;
+  }
+
+  .md-icon {
+    border-radius: 2px;
+    line-height: 18px;
+    position: absolute;
+    font-size: 18px;
+    height: 18px;
+    border: 2px solid #CCC;
+    width: 18px;
+    left: 0;
+    top: 0;
+
+    @include transition(150ms);
+
+    &::after {
+      border-color: #ffffff;
+    }
+  }
+
+  &.checked {
+    .md-icon {
+      background: palette-color($alt-palette);
+      border: none;
+
+      &::after {
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        left: 6px;
+        top: 2px;
+        display: table;
+        width: 6px;
+        height: 12px;
+        border-width: 2px;
+        border-style: solid;
+        border-top: 0;
+        border-left: 0;
+        content: '';
+      }
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed !important;
+
+    .md-label {
+      color: $black-light;
+    }
+
+    .md-icon {
+      border-color: #eee;
+    }
+  }
+
+  &.md-focused:not(.disabled) {
+    .checkbox-container {
+      &::before {
+        background: rgba(#000, .08);
+
+        @include transform(scale(1.8));
+      }
+    }
+
+    &.checked {
+      .checkbox-container::before {
+        background: rgba(palette-color($alt-palette), .125);
+      }
+    }
+  }
+}
+
+.md-checkbox-group {
+  &.inline {
+
+    @include clearfix();
+
+    .md-checkbox {
+      margin-right: 16px;
+    }
+  }
+}
