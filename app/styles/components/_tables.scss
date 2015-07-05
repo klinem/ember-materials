@@ -35,7 +35,7 @@ $table-th-sorted-color:  hsl(0, 0%, 13%) !default;
     cursor: default;
     color: $table-th-color;
 
-    &.sortable {
+    &.md-sortable {
       position: relative;
       cursor: pointer;
     }
@@ -124,7 +124,7 @@ $table-th-sorted-color:  hsl(0, 0%, 13%) !default;
       width: 48px;
 
     }
-    
+
     .md-checkbox {
       margin: 0 0 4px;
     }

@@ -6,18 +6,16 @@
   <div class="doc-example">
     <div class="md-card">
       <table class="md-table">
-        <thead>
-          <tr>
-            <th>Dessert (100g serving)</th>
-            <th>Calories</th>
-            <th>Fat (g)</th>
-            <th>Carbs (g)</th>
-            <th>Protein (g)</th>
-            <th>Sodium (mg)</th>
-            <th>Calcium (%)</th>
-            <th>Iron (%)</th>
-          </tr>
-        </thead>
+        {{#md-table-header}}
+          {{md-table-th text="Dessert (100g serving)" sortBy="name"}}
+          {{md-table-th text="Calories"}}
+          {{md-table-th text="Fat (g)"}}
+          {{md-table-th text="Carbs (g)"}}
+          {{md-table-th text="Protein (g)"}}
+          {{md-table-th text="Sodium (mg)"}}
+          {{md-table-th text="Calcium (%)"}}
+          {{md-table-th text="Iron (%)"}}
+        {{/md-table-header}}
         <tbody>
           {{#each model as |t|}}
             <tr>
