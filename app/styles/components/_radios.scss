@@ -37,6 +37,8 @@
   }
 
   .md-icon {
+    display: block !important;
+
     &::before {
       border-radius: 50%;
       position: absolute;

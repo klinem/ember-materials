@@ -2,6 +2,7 @@
 /* global require, module */
 
 var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
+var Funnel     = require('broccoli-funnel');
 
 /*
   This Brocfile specifes the options for the dummy test app of this
@@ -20,7 +21,12 @@ var app = new EmberAddon({
   }
 });
 
+var fonts = new Funnel('vendor/material-design-icons', {
+  srcDir: '/',
+  include: ['*.{eot,ttf,woff,woff2}'],
+  destDir: '/assets/fonts'
+});
 
 app.import('vendor/scripts/highlight.pack.js');
 
-module.exports = app.toTree();
+module.exports = app.toTree([fonts]);

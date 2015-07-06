@@ -38,8 +38,24 @@ export default Ember.Component.extend({
 
   actions: {
     onCellClick(prop) {
+      const props = this.get('sortProperties');
+
       if ( this.attrs.onSort ) {
-        this.attrs.onSort(prop);
+        let property = findProperty(prop);
+        let props = Ember.A();
+
+        props.pushObject({
+          isDescending: property ? !property.isDescending : false,
+          property: prop
+        });
+
+        this.attrs.onSort(props);
+      }
+
+      function findProperty(prop) {
+        return props.find(x => {
+          return x.property === prop;
+        });
       }
     }
   }

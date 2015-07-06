@@ -1,0 +1,40 @@
+
+.md-pagination {
+  position: relative;
+  display: inline-block;
+
+  @include clearfix();
+
+  .prev, .next, .page {
+
+    &:not(a[disabled]), &:not(.md-disabled) {
+      cursor: pointer;
+    }
+
+    &[disabled], &.md-disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &.pagination-mini {
+
+    .pagination-info {
+      margin-right: 8px;
+      line-height: 24px;
+      font-weight: 500;
+      display: block;
+      color: $black-light;
+
+      float: left;
+    }
+
+    .prev, .next {
+      float: left;
+      color: $black-light;
+    }
+
+    .prev {
+      margin-right: 8px;
+    }
+  }
+}

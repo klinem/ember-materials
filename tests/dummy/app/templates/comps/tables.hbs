@@ -6,18 +6,18 @@
   <div class="doc-example">
     <div class="md-card">
       <table class="md-table">
-        {{#md-table-header}}
+        {{#md-table-header onSort=(action "setSorting")}}
           {{md-table-th text="Dessert (100g serving)" sortBy="name"}}
-          {{md-table-th text="Calories"}}
-          {{md-table-th text="Fat (g)"}}
-          {{md-table-th text="Carbs (g)"}}
-          {{md-table-th text="Protein (g)"}}
-          {{md-table-th text="Sodium (mg)"}}
-          {{md-table-th text="Calcium (%)"}}
-          {{md-table-th text="Iron (%)"}}
+          {{md-table-th text="Calories" sortBy="calories"}}
+          {{md-table-th text="Fat (g)" sortBy="fat"}}
+          {{md-table-th text="Carbs (g)" sortBy="carbs"}}
+          {{md-table-th text="Protein (g)" sortBy="protein"}}
+          {{md-table-th text="Sodium (mg)" sortBy="sodium"}}
+          {{md-table-th text="Calcium (%)" sortBy="calcium"}}
+          {{md-table-th text="Iron (%)" sortBy="iron"}}
         {{/md-table-header}}
         <tbody>
-          {{#each model as |t|}}
+          {{#each sorted as |t|}}
             <tr>
               <td>{{t.name}}</td>
               <td>{{t.calories}}</td>

@@ -42,12 +42,16 @@ test('it should add a sorted and descending class', function(assert) {
 });
 
 test('should send the click event up', function(assert) {
-  assert.expect(1);
+  assert.expect(3);
 
   this.set('sort', "");
   this.set('actions', {
-    onSort(prop) {
-      this.set('sort', prop);
+    onSort(props) {
+      let sorting = props.map(x => {
+        return `${x.isDescending ? '-' : ''}${x.property}`;
+      }).join(',');
+
+      this.set('sort', sorting);
     }
   });
 
@@ -62,4 +66,9 @@ test('should send the click event up', function(assert) {
   $cell.click();
 
   assert.equal($cell.hasClass('md-sorted'), true);
+  assert.equal($cell.hasClass('md-descending'), false);
+
+  $cell.click();
+
+  assert.equal($cell.hasClass('md-descending'), true);
 });

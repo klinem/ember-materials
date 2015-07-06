@@ -1,0 +1,37 @@
+{{#if isMini}}
+  <span class="pagination-info">
+    {{paginationInfo}}
+  </span>
+
+  {{#if previousDisabled}}
+    <span class="prev md-disabled">
+      {{md-icon icon="chevron_left"}}
+    </span>
+  {{else}}
+    <a class="prev" {{action "goToPage" previousPage}}>
+      {{md-icon icon="chevron_left"}}
+    </a>
+  {{/if}}
+
+  {{#if nextDisabled}}
+    <span class="next md-disabled">
+      {{md-icon icon="chevron_right"}}
+    </span>
+  {{else}}
+    <a class="next" {{action "goToPage" nextPage}}>
+      {{md-icon icon="chevron_right"}}
+    </a>
+  {{/if}}
+{{else}}
+  {{#each pageLinks as |link|}}
+    {{#if link.isLink}}
+      <a class={{link.classNames}} {{action "goToPage" link.page}}>
+        {{link.text}}
+      </a>
+    {{else}}
+      <span class={{link.classNames}}>
+        {{link.text}}
+      </span>
+    {{/if}}
+  {{/each}}
+{{/if}}

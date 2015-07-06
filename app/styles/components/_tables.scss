@@ -72,7 +72,7 @@ $table-th-sorted-color:  hsl(0, 0%, 13%) !default;
     }
   }
 
-  th.sorted {
+  th.md-sorted {
     color: $table-th-sorted-color;
 
     &:not(.text-right) {
