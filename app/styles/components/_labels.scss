@@ -1,0 +1,7 @@
+$label-color:          $black-light !default;
+$label-font-size:      13px !default;
+
+.md-label {
+  font-size: $label-font-size;
+  color: $label-color;
+}

@@ -1,0 +1,36 @@
+$input-border:         #dde2e8 !default;
+$input-focus-border:   palette-color($primary-palette) !default;
+
+$input-padding:        8px 0 !default;
+$input-height:         40px !default;
+
+$input-color:          $black-base !default;
+$input-disabled-color: $black-light !default;
+
+.md-input {
+  border-radius: 0 !important;
+  border-width: 0 0 1px 0;
+  border-color: $input-border;
+  line-height: 24px;
+  background: none;
+  font-size: 15px;
+  padding: $input-padding;
+  display: block;
+  outline: none;
+  height: $input-height;
+  color: $input-color;
+
+  @include transition(border-color .15s);
+
+  &[readonly], &.readonly, &[disabled], &.disabled {
+    border-style: dotted;
+    color: $input-disabled-color;
+  }
+
+  &:not([readonly]), &:not(.readonly), &:not([disabled]), &:not(.disabled) {
+    &:focus {
+      border-color: $input-focus-border;
+      box-shadow: 0 1px 0 $input-focus-border;
+    }
+  }
+}

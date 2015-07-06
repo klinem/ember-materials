@@ -1,0 +1,13 @@
+{{#if hasBlock}}
+  {{yield}}
+{{else}}
+  {{#if label}}
+    <label for="" class="md-label">
+      {{label}}
+    </label>
+  {{/if}}
+
+  {{md-input type=type value=value maxlength=maxlength minlength=minlength
+             required=required min=min max=max step=step readonly=readonly
+             disabled=disabled}}
+{{/if}}

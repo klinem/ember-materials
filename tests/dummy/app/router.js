@@ -17,6 +17,7 @@ Router.map(function() {
     this.route('sidenav');
     this.route('tables');
     this.route('pagination');
+    this.route('inputs');
   });
 });
 

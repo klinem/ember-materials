@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { computed, typeOf } = Ember;
+const { computed } = Ember;
 
 export default Ember.Component.extend({
   classNames: ['md-pagination'],
@@ -109,7 +109,7 @@ export default Ember.Component.extend({
 
     let info      = "";
     let firstItem = ((page * per) - per) + 1;
-    let lastItem  = firstItem * per;
+    let lastItem  = (firstItem + per) - 1;
 
     if (itemCount) {
       if (lastItem > itemCount) {
@@ -227,7 +227,7 @@ export default Ember.Component.extend({
           pageNumbers += (firstPage - overflowAmount) + 1;
           firstPage = 1;
         } else {
-          for(var i = 1; i <= overflowAmount; i++) {
+          for(let i = 1; i <= overflowAmount; i++) {
             links.push({
               text: i,
               page: i,
@@ -250,7 +250,7 @@ export default Ember.Component.extend({
       }
     }
 
-    for(var i = firstPage, len = (firstPage + pageNumbers); i < len; i++) {
+    for(let i = firstPage, len = (firstPage + pageNumbers); i < len; i++) {
       links.push({
         page: i,
         text: i,
@@ -262,7 +262,7 @@ export default Ember.Component.extend({
       if ((firstPage + pageNumbers - 1) < pageCount) {
         if (overflowAmount > 0) {
           if (((pageCount - lastPage) - overflowAmount) < overflowAmount) {
-            for(var i = (lastPage + 1); i <= pageCount; i++) {
+            for(let i = (lastPage + 1); i <= pageCount; i++) {
               links.push({
                 text: i,
                 page: i,
@@ -276,7 +276,7 @@ export default Ember.Component.extend({
               disabled: true,
               type: 'overflow'
             });
-            for(var i = (pageCount - (overflowAmount - 1)); i <= pageCount; i++) {
+            for(let i = (pageCount - (overflowAmount - 1)); i <= pageCount; i++) {
               links.push({
                 text: i,
                 page: i,
