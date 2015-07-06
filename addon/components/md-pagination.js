@@ -1,12 +1,12 @@
 import Ember from 'ember';
 
-const { computed } = Ember;
+const { computed, typeOf } = Ember;
 
 export default Ember.Component.extend({
   classNames: ['md-pagination'],
 
   classNameBindings: [
-    'isMini:pagination-mini'
+    'isMini:pagination-mini:pagination-full'
   ],
 
   /**
@@ -53,6 +53,42 @@ export default Ember.Component.extend({
     return null;
   }),
 
+
+  /**
+   * @property maxLinks
+   * @type Number
+   * @default 5
+   */
+  maxLinks: 5,
+
+  /**
+   * @property showArrows
+   * @type Boolean
+   * @default true
+   */
+  showArrows: true,
+
+  /**
+   * @property nextArrowText
+   * @type String
+   * @default next
+   */
+  nextArrowText: 'Next',
+
+  /**
+   * @property prevArrowText
+   * @type String
+   * @default previous
+   */
+  prevArrowText: 'Previous',
+
+  /**
+   * @property overflow
+   * @type Boolean|Number
+   * @default false
+   */
+  overflow: false,
+
   /**
    * @property isMini
    * @type Boolean
@@ -61,13 +97,6 @@ export default Ember.Component.extend({
   isMini: computed('type', function() {
     return this.get('type') === 'mini';
   }),
-
-  /**
-   * @property maxLinks
-   * @type Number
-   * @default 5
-   */
-  maxLinks: 5,
 
   /**
    * @property paginationInfo
@@ -140,6 +169,20 @@ export default Ember.Component.extend({
   }),
 
   /**
+   * @property overflowAmount
+   * @type Number
+   * @default 0
+   */
+  overflowAmount: computed('overflow', function() {
+    let overflow = parseInt(this.get('overflow'));
+
+    if (!isNaN(overflow)) {
+      return overflow;
+    }
+    return 0;
+  }),
+
+  /**
    * @property pageLinks
    * @type Array
    * @default []
@@ -152,7 +195,11 @@ export default Ember.Component.extend({
       return null;
     }
 
-    const maxLinks  = this.get('maxLinks');
+    const safeHellip     = Ember.String.htmlSafe('&hellip;');
+    const showArrows     = this.get('showArrows');
+    const maxLinks       = this.get('maxLinks');
+    const overflow       = !!this.get('overflow');
+    const overflowAmount = this.get('overflowAmount');
 
     let links       = [];
     let firstPage   = 1;
@@ -174,12 +221,96 @@ export default Ember.Component.extend({
       }
     }
 
+    if (overflow && firstPage > 1) {
+      if (overflowAmount > 0) {
+        if ((firstPage - overflowAmount) <= overflowAmount) {
+          pageNumbers += (firstPage - overflowAmount) + 1;
+          firstPage = 1;
+        } else {
+          for(var i = 1; i <= overflowAmount; i++) {
+            links.push({
+              text: i,
+              page: i,
+              type: 'page'
+            });
+          }
+
+          links.push({
+            text: safeHellip,
+            type: 'overflow',
+            disabled: true
+          });
+        }
+      } else {
+        links.unshift({
+          text: safeHellip,
+          disabled: true,
+          type: 'overflow'
+        });
+      }
+    }
+
     for(var i = firstPage, len = (firstPage + pageNumbers); i < len; i++) {
       links.push({
-        text: i,
         page: i,
-        isLink: i !== currentPage,
-        classNames: Ember.String.htmlSafe('page')
+        text: i,
+        type: 'page',
+      });
+    }
+
+    if (overflow) {
+      if ((firstPage + pageNumbers - 1) < pageCount) {
+        if (overflowAmount > 0) {
+          if (((pageCount - lastPage) - overflowAmount) < overflowAmount) {
+            for(var i = (lastPage + 1); i <= pageCount; i++) {
+              links.push({
+                text: i,
+                page: i,
+                type: 'page',
+                disabled: false
+              });
+            }
+          } else {
+            links.push({
+              text: safeHellip,
+              disabled: true,
+              type: 'overflow'
+            });
+            for(var i = (pageCount - (overflowAmount - 1)); i <= pageCount; i++) {
+              links.push({
+                text: i,
+                page: i,
+                type: 'page',
+              });
+            }
+          }
+        }
+        else {
+          links.push({
+            text: safeHellip,
+            disabled: true,
+            type: 'overflow'
+          });
+        }
+      }
+    }
+
+    if (showArrows) {
+      let isNextDisabled = currentPage >= pageCount;
+      let isPrevDisabled = currentPage === 1;
+
+      links.unshift({
+        text: Ember.String.htmlSafe(this.get('prevArrowText')),
+        page: currentPage - 1,
+        type: 'prev',
+        disabled: isPrevDisabled
+      });
+
+      links.push({
+        text: Ember.String.htmlSafe(this.get('nextArrowText')),
+        page: currentPage + 1,
+        type: 'next',
+        disabled: isNextDisabled
       });
     }
 

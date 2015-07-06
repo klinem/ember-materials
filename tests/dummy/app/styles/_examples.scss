@@ -24,6 +24,10 @@
     overflow: hidden;
     position: relative;
     border: 1px solid $gray-border;
+
+    &.pad-20 {
+      padding: 20px;
+    }
   }
 
   .md-card:last-child {

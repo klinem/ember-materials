@@ -4,17 +4,40 @@
   </h2>
 
   <div class="doc-example">
-    <div class="md-card">
-      <div class="card-body">
-        {{md-pagination page=1 itemCount=21 type="mini"}}
+    <div class="doc-example-body pad-20">
+      <div class="md-card">
+        <table class="md-table">
+          <tbody>
+            {{#each paged as |t|}}
+              <tr>
+                <td>{{t.name}}</td>
+                <td class="text-right">{{t.amount}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <div class="card-footer text-right">
+          {{md-pagination page=page itemCount=itemCount perPage=perPage type="mini" onPage=(action "changePage")}}
+        </div>
       </div>
     </div>
   </div>
 
   <div class="doc-example">
-    <div class="md-card">
-      <div class="card-body">
-        {{md-pagination page=1 itemCount=100}}
+    <div class="doc-example-body pad-20">
+      <div class="md-card">
+        <table class="md-table">
+          <tbody>
+            {{#each paged as |t|}}
+              <tr>
+                <td>{{t.name}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <div class="md-pagination-container">
+        {{md-pagination page=page itemCount=itemCount perPage=perPage overflow=2 onPage=(action "changePage")}}
       </div>
     </div>
   </div>

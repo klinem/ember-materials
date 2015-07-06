@@ -24,14 +24,6 @@
   {{/if}}
 {{else}}
   {{#each pageLinks as |link|}}
-    {{#if link.isLink}}
-      <a class={{link.classNames}} {{action "goToPage" link.page}}>
-        {{link.text}}
-      </a>
-    {{else}}
-      <span class={{link.classNames}}>
-        {{link.text}}
-      </span>
-    {{/if}}
+    {{md-pagination-link type=link.type page=link.page text=link.text disabled=link.disabled onClick=(action "goToPage")}}
   {{/each}}
 {{/if}}

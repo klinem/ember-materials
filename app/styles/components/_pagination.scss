@@ -1,23 +1,38 @@
+$pagination-full-item-bg:     #ffffff !default;
+$pagination-full-item-border: $gray-border !default;
+$pagination-full-radius:      $radius-base !default;
+
+$pagination-current-bg:       palette-color($primary-palette) !default;
+$pagination-current-border:   palette-color($primary-palette) !default;
+$pagination-current-color:    #ffffff !default;
+
+$pagination-disabled-bg:      #f7f7f7 !default;
+$pagination-disabled-color:   #bbbbbb !default;
 
 .md-pagination {
   position: relative;
   display: inline-block;
+  vertical-align: top;
 
   @include clearfix();
 
-  .prev, .next, .page {
+  .prev, .next, .page, .overflow {
+    text-decoration: none;
+    white-space: nowrap;
+    position: relative;
+    display: block;
+    float: left;
 
-    &:not(a[disabled]), &:not(.md-disabled) {
+    &:not([disabled]):not(.disabled) {
       cursor: pointer;
     }
 
-    &[disabled], &.md-disabled {
+    &[disabled], &.disabled {
       cursor: not-allowed;
     }
   }
 
   &.pagination-mini {
-
     .pagination-info {
       margin-right: 8px;
       line-height: 24px;
@@ -29,7 +44,6 @@
     }
 
     .prev, .next {
-      float: left;
       color: $black-light;
     }
 
@@ -37,4 +51,39 @@
       margin-right: 8px;
     }
   }
+
+  &.pagination-full {
+    .page, .prev, .next, .overflow {
+      text-decoration: none;
+      margin-left: -1px;
+      background: $pagination-full-item-bg;
+      padding: 5px 12px;
+      border: 1px solid $pagination-full-item-border;
+
+      &:first-child {
+        @include border-left-radius($pagination-full-radius);
+      }
+
+      &:last-child {
+        @include border-right-radius($pagination-full-radius);
+      }
+    }
+
+    .disabled {
+      background: $pagination-disabled-bg;
+      color: $pagination-disabled-color;
+    }
+
+    .page.current {
+      border-color: $pagination-current-border;
+      background: $pagination-current-bg;
+      z-index: 3;
+      color: $pagination-current-color;
+    }
+  }
+}
+
+.md-pagination-container {
+  text-align: center;
+  padding: 16px 0;
 }

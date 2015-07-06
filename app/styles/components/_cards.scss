@@ -12,6 +12,9 @@ $card-title-font-size:  24px !default;
 
 $card-actions-padding:  8px !default;
 
+$card-footer-padding:   12px !default;
+$card-footer-border:    $gray-border;
+
 .md-card {
   border-radius: $card-radius;
   box-shadow: $card-shadow;
@@ -42,5 +45,13 @@ $card-actions-padding:  8px !default;
     padding: $card-actions-padding;
 
     @include clearfix();
+  }
+
+  .card-footer {
+    padding: $card-footer-padding;
+
+    @if $card-footer-border != false {
+      border-top: 1px solid $card-footer-border;
+    }
   }
 }
