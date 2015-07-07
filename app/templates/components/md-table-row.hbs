@@ -1,0 +1,7 @@
+{{#if selectable}}
+  <td class="table-action">
+    {{md-checkbox value=selected onCheck=(action "onSelect")}}
+  </td>
+{{/if}}
+
+{{yield}}

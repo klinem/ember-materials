@@ -7,6 +7,9 @@
     <div class="md-card">
       <table class="md-table">
         {{#md-table-header onSort=(action "setSorting")}}
+          <th class="table-action">
+            {{md-checkbox checked=allSelected onCheck=(action "selectAll")}}
+          </th>
           {{md-table-th text="Dessert (100g serving)" sortBy="name"}}
           {{md-table-th text="Calories" sortBy="calories"}}
           {{md-table-th text="Fat (g)" sortBy="fat"}}
@@ -18,7 +21,7 @@
         {{/md-table-header}}
         <tbody>
           {{#each sorted as |t|}}
-            <tr>
+            {{#md-table-row selected=t.isSelected}}
               <td>{{t.name}}</td>
               <td>{{t.calories}}</td>
               <td>{{t.fat}}</td>
@@ -27,7 +30,7 @@
               <td>{{t.sodium}}</td>
               <td>{{t.calcium}}</td>
               <td>{{t.iron}}</td>
-            </tr>
+            {{/md-table-row}}
           {{/each}}
         </tbody>
       </table>

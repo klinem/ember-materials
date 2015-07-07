@@ -26,6 +26,8 @@
       content: '';
       height: 18px;
       width: 18px;
+      left: 0;
+      top: 0;
 
       @include transform(scale(0));
       @include transition(all 250ms ease);
@@ -58,14 +60,14 @@
   &.checked {
     .md-icon {
       background: palette-color($alt-palette);
-      border: none;
+      border-color: palette-color($alt-palette);
 
       &::after {
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg);
         position: absolute;
-        left: 6px;
-        top: 2px;
+        left: 4px;
+        top: 0;
         display: table;
         width: 6px;
         height: 12px;

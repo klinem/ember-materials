@@ -96,6 +96,10 @@ export default Ember.Component.extend({
 
   setValue() {
     this.toggleProperty('value');
+
+    if (this.attrs.onCheck) {
+      this.attrs.onCheck();
+    }
   },
 
   /**

@@ -15,6 +15,12 @@ export default Ember.Controller.extend({
     });
   }),
 
+  allSelected: computed('model.@each.isSelected', function() {
+    return this.get('model').isEvery('isSelected');
+  }),
+
+  // allSelected: computed.oneWay('everyItemSelected'),
+
   sorted: computed.sort('model', 'sortProperties'),
 
   actions: {
@@ -28,6 +34,15 @@ export default Ember.Controller.extend({
 
         this.set('sort', sorting);
       }
+    },
+
+    selectAll() {
+      this.get('model').setEach('isSelected', !this.get('allSelected'));
+      this.notifyPropertyChange('allSelected');
+    },
+
+    selectOne() {
+
     }
   }
 });
