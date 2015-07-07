@@ -11,3 +11,35 @@ $form-group-margin: 0 0 16px !default;
     display: block;
   }
 }
+
+.js-form-group {
+  position: relative;
+
+  .md-input {
+    &:focus {
+      border-color: $input-border;
+    }
+  }
+
+  &::after {
+    background: palette-color($primary-palette);
+    visibility: hidden;
+    position: absolute;
+    content: '';
+    bottom: -1px;
+    height: 2px;
+    width: 2px;
+    left: 45%;
+
+    @include transition-duration(200ms);
+    @include transition-timing-function(cubic-bezier(.4, 0, .2, 1));
+  }
+
+  &.md-focused {
+    &::after {
+      visibility: visible;
+      width: 100%;
+      left: 0;
+    }
+  }
+}

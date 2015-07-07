@@ -11,25 +11,25 @@
             {{md-checkbox checked=allSelected onCheck=(action "selectAll")}}
           </th>
           {{md-table-th text="Dessert (100g serving)" sortBy="name"}}
-          {{md-table-th text="Calories" sortBy="calories"}}
-          {{md-table-th text="Fat (g)" sortBy="fat"}}
-          {{md-table-th text="Carbs (g)" sortBy="carbs"}}
-          {{md-table-th text="Protein (g)" sortBy="protein"}}
-          {{md-table-th text="Sodium (mg)" sortBy="sodium"}}
-          {{md-table-th text="Calcium (%)" sortBy="calcium"}}
-          {{md-table-th text="Iron (%)" sortBy="iron"}}
+          {{md-table-th text="Calories" sortBy="calories" class="text-right"}}
+          {{md-table-th text="Fat (g)" sortBy="fat" class="text-right"}}
+          {{md-table-th text="Carbs (g)" sortBy="carbs" class="text-right"}}
+          {{md-table-th text="Protein (g)" sortBy="protein" class="text-right"}}
+          {{md-table-th text="Sodium (mg)" sortBy="sodium" class="text-right"}}
+          {{md-table-th text="Calcium (%)" sortBy="calcium" class="text-right"}}
+          {{md-table-th text="Iron (%)" sortBy="iron" class="text-right"}}
         {{/md-table-header}}
         <tbody>
           {{#each sorted as |t|}}
             {{#md-table-row selected=t.isSelected}}
               <td>{{t.name}}</td>
-              <td>{{t.calories}}</td>
-              <td>{{t.fat}}</td>
-              <td>{{t.carbs}}</td>
-              <td>{{t.protein}}</td>
-              <td>{{t.sodium}}</td>
-              <td>{{t.calcium}}</td>
-              <td>{{t.iron}}</td>
+              <td class="text-right">{{t.calories}}</td>
+              <td class="text-right">{{t.fat}}</td>
+              <td class="text-right">{{t.carbs}}</td>
+              <td class="text-right">{{t.protein}}</td>
+              <td class="text-right">{{t.sodium}}</td>
+              <td class="text-right">{{t.calcium}}</td>
+              <td class="text-right">{{t.iron}}</td>
             {{/md-table-row}}
           {{/each}}
         </tbody>

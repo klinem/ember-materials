@@ -2,12 +2,16 @@
   {{yield}}
 {{else}}
   {{#if label}}
-    <label for="" class="md-label">
+    <label for={{inputId}} class="md-label">
       {{label}}
     </label>
   {{/if}}
 
-  {{md-input type=type value=value maxlength=maxlength minlength=minlength
-             required=required min=min max=max step=step readonly=readonly
-             disabled=disabled}}
+  {{#if isInput}}
+    {{md-input type=type value=value maxlength=maxlength minlength=minlength
+               required=required min=min max=max step=step readonly=readonly
+               disabled=disabled id=inputId}}
+  {{else}}
+    {{textarea class="md-input" id=inputId}}
+  {{/if}}
 {{/if}}

@@ -88,14 +88,14 @@ $table-th-sorted-color:  hsl(0, 0%, 13%) !default;
         height: $table-line-height - 2px;
       }
 
-      &:not(.descending) {
+      &:not(.md-descending) {
         &::after {
-          //@include md-icon('expand_less', 18px);
+          @include md-icon('expand_less', 18px);
         }
       }
-      &.descending {
+      &.md-descending {
         &::after {
-          //@include md-icon('expand_more', 18px);
+          @include md-icon('expand_more', 18px);
         }
       }
     }

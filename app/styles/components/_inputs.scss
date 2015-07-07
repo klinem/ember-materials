@@ -30,7 +30,6 @@ $input-disabled-color: $black-light !default;
   &:not([readonly]), &:not(.readonly), &:not([disabled]), &:not(.disabled) {
     &:focus {
       border-color: $input-focus-border;
-      box-shadow: 0 1px 0 $input-focus-border;
     }
   }
 }
