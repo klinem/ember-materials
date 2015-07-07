@@ -1,6 +1,6 @@
 @import "variables";
 @import "materials";
-
+@import "material-grid";
 
 @import "sidenav";
 @import "sidemenu";
@@ -13,13 +13,6 @@
 .doc-container {
   padding: 0 $doc-gutter;
   width: 100%;
-}
-
-.md-container-fluid {
-  padding: 0 $gutter;
-  width: 100%;
-
-  @include clearfix();
 }
 
 .app-container {

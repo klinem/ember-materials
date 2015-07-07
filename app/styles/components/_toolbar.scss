@@ -1,0 +1,18 @@
+$toolbar-margin:  6px !default;
+
+.md-toolbar {
+  margin-left: -($toolbar-margin);
+
+  @include clearfix();
+
+  .toolbar-group {
+    vertical-align: middle;
+    position: relative;
+    display: inline-block;
+  }
+
+  > .toolbar-group {
+    float: left;
+    margin-left: $toolbar-margin;
+  }
+}

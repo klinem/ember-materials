@@ -1,0 +1,42 @@
+$padding-sizes: 4, 8, 12, 16, 20 !default;
+$margin-sizes: 4, 8, 12, 16, 20 !default;
+
+@each $size in $padding-sizes {
+  .pad-#{$size} {
+    padding: #{$size};
+  }
+  .pad-btm-#{$size} {
+    padding-bottom: #{$size}px;
+  }
+  .pad-top-#{$size} {
+    padding-top: #{$size}px;
+  }
+  .pad-vert-#{$size} {
+    padding-bottom: #{$size}px;
+    padding-top: #{$size}px;
+  }
+}
+
+@each $size in $margin-sizes {
+  .mrg-#{$size} {
+    margin: #{$size};
+  }
+  .mrg-btm-#{$size} {
+    margin-bottom: #{$size}px;
+  }
+  .mrg-top-#{$size} {
+    margin-top: #{$size}px;
+  }
+  .mrg-vert-#{$size} {
+    margin-bottom: #{$size}px;
+    margin-top: #{$size}px;
+  }
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.right {
+  float: right !important;
+}

@@ -1,0 +1,16 @@
+
+.md-container-fluid {
+  padding: 0 $gutter;
+  width: 100%;
+
+  @include clearfix();
+}
+
+.md-container {
+  @include outer-container();
+
+  @media (max-width: ($max-width - $gutter)) {
+    max-width: 100% !important;
+    padding: 0 $gutter;
+  }
+}

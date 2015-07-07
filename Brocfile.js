@@ -16,17 +16,18 @@ var app = new EmberAddon({
   sassOptions: {
     extension: 'scss',
     includePaths: [
-      'bower_components/bourbon/app/assets/stylesheets'
+      'bower_components/bourbon/app/assets/stylesheets',
+      'bower_components/neat/app/assets/stylesheets',
     ]
   }
 });
 
-var fonts = new Funnel('vendor/material-design-icons', {
-  srcDir: '/',
-  include: ['*.{eot,ttf,woff,woff2}'],
-  destDir: '/assets/fonts'
-});
+// var fonts = new Funnel('vendor/material-design-icons', {
+//   srcDir: '/',
+//   include: ['*.{eot,ttf,woff,woff2}'],
+//   destDir: '/assets/fonts'
+// });
 
 app.import('vendor/scripts/highlight.pack.js');
 
-module.exports = app.toTree([fonts]);
+module.exports = app.toTree();

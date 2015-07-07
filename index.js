@@ -8,5 +8,9 @@ module.exports = {
   },
   included: function(app) {
     this._super.included(app);
+
+    ['eot', 'ttf', 'woff', 'woff2'].forEach(function(ext) {
+      app.import('vendor/material-design-icons/MaterialIcons-Regular.' + ext, { destDir: 'assets/fonts' });
+    });
   }
 };

@@ -52,7 +52,7 @@ $modal-title-color:       font-color(title);
     border-radius: $modal-radius;
     background: $modal-bg;
     box-shadow: $modal-shadow;
-    margin: $modal-margin $gutter;
+    margin: $modal-margin 16px;
 
     @include transform(translate(0, -25%));
     @include transition(transform 150ms ease);
