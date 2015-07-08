@@ -86,7 +86,7 @@ $btn-default-raised-active-bg: false !default;
 $btn-primary-color:            palette-color($primary-palette) !default;
 $btn-primary-hover-bg:         palette-color($primary-palette, 50) !default;
 $btn-primary-active-bg:        false !default;
-$btn-primary-ripple:           rgba(palette-color($primary-palette, 100), 0.6) !default;
+$btn-primary-ripple:           palette-color($primary-palette, 400) !default;
 
 $btn-primary-raised-color:     #FFFFFF !default;
 $btn-primary-raised-bg:        palette-color($primary-palette) !default;
@@ -96,7 +96,7 @@ $btn-primary-raised-active-bg: palette-color($primary-palette, 700) !default;
 $btn-alt-color:                palette-color($alt-palette) !default;
 $btn-alt-hover-bg:             palette-color($alt-palette, 50) !default;
 $btn-alt-active-bg:            false !default;
-$btn-alt-ripple:               rgba(palette-color($alt-palette, 100), 0.6) !default;
+$btn-alt-ripple:               palette-color($alt-palette, 400) !default;
 
 $btn-alt-raised-color:         #FFFFFF !default;
 $btn-alt-raised-bg:            palette-color($alt-palette) !default;
@@ -106,7 +106,7 @@ $btn-alt-raised-active-bg:     palette-color($alt-palette, 700) !default;
 $btn-warning-color:            palette-color($md-orange) !default;
 $btn-warning-hover-bg:         palette-color($md-orange, 50) !default;
 $btn-warning-active-bg:        false !default;
-$btn-warning-ripple:           rgba(palette-color($md-orange, 100), 0.6) !default;
+$btn-warning-ripple:           palette-color($md-orange, 400) !default;
 
 $btn-warning-raised-color:     #FFFFFF !default;
 $btn-warning-raised-bg:        palette-color($md-orange) !default;
@@ -116,7 +116,7 @@ $btn-warning-raised-active-bg: palette-color($md-orange, 700) !default;
 $btn-danger-color:             palette-color($md-red) !default;
 $btn-danger-hover-bg:          palette-color($md-red, 50) !default;
 $btn-danger-active-bg:         false !default;
-$btn-danger-ripple:            rgba(palette-color($md-red, 200), 0.4) !default;
+$btn-danger-ripple:            palette-color($md-red, 200) !default;
 
 $btn-danger-raised-color:      #FFFFFF !default;
 $btn-danger-raised-bg:         palette-color($md-red) !default;
@@ -130,7 +130,7 @@ $btn-danger-raised-active-bg:  palette-color($md-red, 700) !default;
         @include button-variant(
           $hoverBg: $btn-default-hover-bg,
           $activeBg: $btn-default-active-bg,
-          $ripple: $btn-default-ripple);
+          $ripple: false);
       }
       &.primary {
         @include button-variant(
@@ -144,7 +144,7 @@ $btn-danger-raised-active-bg:  palette-color($md-red, 700) !default;
           $hoverBg: $btn-alt-hover-bg,
           $activeBg: $btn-alt-active-bg,
           $color: $btn-alt-color,
-          $ripple: $btn-alt-ripple);
+          $ripple: #FFF);
       }
       &.warning {
         @include button-variant(
@@ -169,19 +169,19 @@ $btn-danger-raised-active-bg:  palette-color($md-red, 700) !default;
       }
       &.primary {
         @include button-variant($btn-primary-raised-hover-bg, $btn-primary-raised-active-bg,
-          $btn-primary-raised-color, $btn-primary-raised-bg);
+          $btn-primary-raised-color, $btn-primary-raised-bg, #FFF);
       }
       &.alt {
         @include button-variant($btn-alt-raised-hover-bg, $btn-alt-raised-active-bg,
-          $btn-alt-raised-color, $btn-alt-raised-bg);
+          $btn-alt-raised-color, $btn-alt-raised-bg, #FFF);
       }
       &.warning {
         @include button-variant($btn-warning-raised-hover-bg, $btn-warning-raised-active-bg,
-          $btn-warning-raised-color, $btn-warning-raised-bg);
+          $btn-warning-raised-color, $btn-warning-raised-bg, #FFF);
       }
       &.danger {
         @include button-variant($btn-danger-raised-hover-bg, $btn-danger-raised-active-bg,
-          $btn-danger-raised-color, $btn-danger-raised-bg);
+          $btn-danger-raised-color, $btn-danger-raised-bg, #FFF);
       }
     }
   }

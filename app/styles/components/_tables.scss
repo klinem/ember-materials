@@ -132,6 +132,10 @@ $table-th-sorted-color:  hsl(0, 0%, 13%) !default;
 
     .md-checkbox {
       margin: 0 0 4px;
+
+      .md-checkbox-ripple-container {
+        top: -18px;
+      }
     }
   }
 }

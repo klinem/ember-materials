@@ -1,8 +1,9 @@
 import Ember from 'ember';
+import RippleMixin from '../mixins/components/ripple';
 
 const { computed, on, run, typeOf } = Ember;
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(RippleMixin, {
   classNameBindings: ['mdClass', 'checked', 'isDisabled', 'focused:md-focused'],
 
   attributeBindings: [
@@ -23,6 +24,12 @@ export default Ember.Component.extend({
   }),
 
   mdClass: 'md-checkbox',
+
+  rippleElement: '.md-checkbox-ripple-container',
+
+  rippleContainer: 'md-checkbox-ripple-container',
+
+  rippleCentered: true,
 
   /**
    * @property value
@@ -137,6 +144,7 @@ export default Ember.Component.extend({
     if (!this.get('isDisabled')) {
       this.setValue();
     }
+    return true;
   },
 
   /**
@@ -148,5 +156,7 @@ export default Ember.Component.extend({
     run.later(() => {
       this.set('mouseActive', false);
     }, 100);
+
+    return true;
   }
 });

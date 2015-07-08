@@ -1,0 +1,39 @@
+
+.md-ripple-container {
+  position: absolute;
+  overflow: hidden;
+  display: block;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.md-ripple {
+  pointer-events: none;
+  border-radius: 50%;
+  background: #000;
+  position: absolute;
+  overflow: hidden;
+  opacity: 0;
+  height: 50px;
+  width: 50px;
+  left: 0;
+  top: 0;
+
+  @include transform(translate(-50%, -50%));
+
+  &.md-animating {
+    @include transition(#{
+      transform 300ms cubic-bezier(0, 0, 0.2, 1),
+      width 300ms cubic-bezier(0, 0, 0.2, 1),
+      height 300ms cubic-bezier(0, 0, 0.2, 1),
+      opacity 600ms cubic-bezier(0, 0, 0.2, 1)
+    });
+  }
+
+  &.md-visible {
+    opacity: 0.3;
+  }
+}

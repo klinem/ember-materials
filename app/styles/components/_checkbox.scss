@@ -19,7 +19,7 @@
 
     @include transform(translateY(-50%));
 
-    &::before {
+    &::after {
       border-radius: 50%;
       background: transparent;
       position: absolute;
@@ -94,7 +94,7 @@
 
   &.md-focused:not(.disabled) {
     .checkbox-container {
-      &::before {
+      &::after {
         background: rgba(#000, .08);
 
         @include transform(scale(1.8));
@@ -106,6 +106,18 @@
         background: rgba(palette-color($alt-palette), .125);
       }
     }
+  }
+
+  .md-checkbox-ripple-container {
+    border-radius: 50%;
+    position: absolute;
+    overflow: hidden;
+    z-index: 2;
+    cursor: pointer;
+    height: 36px;
+    width: 36px;
+    left: -9px;
+    top: -5px;
   }
 }
 

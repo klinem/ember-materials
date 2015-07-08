@@ -3,11 +3,11 @@
     {{yield}}
   </div>
   <div class="modal-actions">
-    <button class="md-btn primary" disabled={{cancelDisabled}} {{action "cancel"}}>
+    {{#md-button class="primary" disabled=cancelDisabled onClick=(action "cancel")}}
       Cancel
-    </button>
-    <button class="md-btn primary" disabled={{confirmDisabled}} {{action "confirm"}}>
+    {{/md-button}}
+    {{#md-button class="primary" disabled=confirmDisabled onClick=(action "confirm")}}
       Confirm
-    </button>
+    {{/md-button}}
   </div>
 </div>

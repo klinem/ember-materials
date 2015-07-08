@@ -18,6 +18,12 @@ export default MdCheckbox.extend({
     return this.get('parentView.model') === this.get('value');
   }),
 
+  rippleElement: '.md-radio-ripple-container',
+
+  rippleContainer: 'md-radio-ripple-container',
+
+  rippleCentered: true,
+
   /**
    * @method setValue
    * @override

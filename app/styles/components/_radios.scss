@@ -106,6 +106,18 @@
       }
     }
   }
+
+  .md-radio-ripple-container {
+    border-radius: 50%;
+    position: absolute;
+    overflow: hidden;
+    z-index: 2;
+    cursor: pointer;
+    height: 36px;
+    width: 36px;
+    left: -9px;
+    top: -5px;
+  }
 }
 
 .md-radio-group {
