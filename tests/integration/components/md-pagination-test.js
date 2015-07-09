@@ -226,39 +226,10 @@ test('it should show overflow page links', function(assert) {
 
     assert.deepEqual(getLinks(this.$('.md-pagination')), testMatrix[k]);
   }
-
-  // assert.deepEqual(getLinks(this.$('.md-pagination')), ['1', '2', '3', '4', '5', '…', '19', '20']);
-  //
-  // this.set('page', 5);
-  // assert.deepEqual(getLinks(this.$('.md-pagination')), ['1', '2', '3', '4', '5', '6', '7', '…', '19', '20']);
-  //
-  // this.set('page', 6);
-  // assert.deepEqual(getLinks(this.$('.md-pagination')), ['1', '2', '3', '4', '5', '6', '7', '8', '…', '19', '20']);
-  //
-  // this.set('page', 7);
-  // assert.deepEqual(getLinks(this.$('.md-pagination')), ['1', '2', '…', '5', '6', '7', '8', '9', '…', '19', '20']);
-  //
-  // this.set('page', 10);
-  // assert.deepEqual(getLinks(this.$('.md-pagination')), ['1', '2', '…', '8', '9', '10', '11', '12', '…', '19', '20']);
-  //
-  // this.set('page', 14);
-  // assert.deepEqual(getLinks(this.$('.md-pagination')), ['1', '2', '…', '12', '13', '14', '15', '16', '…', '19', '20']);
-  //
-  // this.set('page', 15);
-  // assert.deepEqual(getLinks(this.$('.md-pagination')), ['1', '2', '…', '13', '14', '15', '16', '17', '18', '19', '20']);
-  //
-  // this.set('page', 16);
-  // assert.deepEqual(getLinks(this.$('.md-pagination')), ['1', '2', '…', '14', '15', '16', '17', '18', '19', '20']);
-  //
-  // this.set('page', 18);
-  // assert.deepEqual(getLinks(this.$('.md-pagination')), ['1', '2', '…', '16', '17', '18', '19', '20']);
-  //
-  // this.set('page', 20);
-  // assert.deepEqual(getLinks(this.$('.md-pagination')), ['1', '2', '…', '16', '17', '18', '19', '20']);
 });
 
 
-function getLinks($cont, expected) {
+function getLinks($cont) {
   let links = [];
 
   $cont.children().each((i, block) => {

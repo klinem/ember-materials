@@ -12,9 +12,6 @@ moduleForComponent('md-button', 'Unit | Component | md button', {
 test('it renders', function(assert) {
   assert.expect(1);
 
-  // Creates the component instance
-  var component = this.subject();
-
   // Renders the component to the page
   this.render();
   assert.equal(this.$().hasClass('md-btn'), true);

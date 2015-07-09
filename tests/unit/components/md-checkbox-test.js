@@ -13,9 +13,6 @@ moduleForComponent('md-checkbox', 'Unit | Component | md checkbox', {
 test('it renders', function(assert) {
   assert.expect(1);
 
-  // Creates the component instance
-  var component = this.subject();
-
   // Renders the component to the page
   this.render();
   assert.equal(this.$().hasClass('md-checkbox'), true);
@@ -72,21 +69,11 @@ test('it should not toggle the value if disabled', function(assert) {
   assert.equal(component.get('value'), false);
 });
 
-// test('it should add an `md-focused` class when focused', function(assert) {
-//   assert.expect(1);
-//
-//   var component = this.subject();
-//   this.render();
-//
-//   this.$().focus();
-//
-//   assert.equal(this.$().hasClass('md-focused'), true);
-// });
 
 test('it should bind the aria-label', function(assert) {
   assert.expect(1);
 
-  var component = this.subject({
+  this.subject({
     label: 'Test'
   });
 
