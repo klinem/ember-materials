@@ -11,6 +11,7 @@ export default Ember.Component.extend(RippleMixin, {
   attributeBindings: [
     'ariaDisabled:aria-disabled',
     'disabled',
+    'type',
   ],
 
   ariaDisabled: computed('disabled', function() {

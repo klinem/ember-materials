@@ -3,7 +3,13 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
-    // Add options here
+    sassOptions: {
+      extension: 'scss',
+      includePaths: [
+        'bower_components/bourbon/app/assets/stylesheets',
+        'bower_components/neat/app/assets/stylesheets',
+      ]
+    }
   });
 
   /*
@@ -12,6 +18,8 @@ module.exports = function(defaults) {
     This build file does *not* influence how the addon or the app using it
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
+
+  app.import('vendor/scripts/highlight.pack.js');
 
   return app.toTree();
 };
