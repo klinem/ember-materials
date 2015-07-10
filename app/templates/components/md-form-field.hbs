@@ -10,8 +10,11 @@
   {{#if isInput}}
     {{md-input type=type value=value maxlength=maxlength minlength=minlength
                required=required min=min max=max step=step readonly=readonly
-               disabled=disabled id=inputId placeholder=placeholder}}
+               disabled=disabled id=inputId placeholder=placeholder
+               name=name}}
   {{else}}
-    {{textarea class="md-input" id=inputId}}
+    {{textarea class="md-input" id=inputId name=name value=value required=required
+               readonly=readonly disabled=disabled maxlength=maxlength
+               minlength=minlength}}
   {{/if}}
 {{/if}}

@@ -22,5 +22,7 @@ export default Ember.Component.extend(RippleMixin, {
     if (this.attrs.onClick) {
       this.attrs.onClick();
     }
+    
+    return true;
   }
 });
