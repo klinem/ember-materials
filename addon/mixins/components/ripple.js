@@ -85,15 +85,24 @@ export default Ember.Mixin.create({
       this.frameCount = 1;
 
       const bounds = event.currentTarget.getBoundingClientRect();
-      let x;
-      let y;
 
-      if (event.clientX === 0 && event.clientY === 0) {
+      let { clientX, clientY } = event;
+      let x, y;
+
+      if (clientX === 0 && clientY === 0) {
         x = Math.round(bounds.width / 2);
         y = Math.round(bounds.height / 2);
       } else {
-        let clientX = event.clientX ? event.clientX : event.touches[0].clientX;
-        let clientY = event.clientY ? event.clientY : event.touches[0].clientY;
+        if (!clientX) {
+          clientX = event.touches ? event.touches[0].clientX : false;
+        }
+        if (!clientY) {
+          clientY = event.touches ? event.touches[0].clientY : false;
+        }
+
+        if (!clientX && !clientY) {
+          return;
+        }
 
         x = Math.round(clientX - bounds.left);
         y = Math.round(clientY - bounds.top);
