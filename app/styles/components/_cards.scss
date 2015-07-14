@@ -15,6 +15,9 @@ $card-actions-padding:  8px !default;
 $card-footer-padding:   12px !default;
 $card-footer-border:    $gray-border;
 
+$card-divider-margin:   16px -16px;
+$card-divider-color:    $gray-border;
+
 .md-card {
   border-radius: $card-radius;
   box-shadow: $card-shadow;
@@ -53,5 +56,12 @@ $card-footer-border:    $gray-border;
     @if $card-footer-border != false {
       border-top: 1px solid $card-footer-border;
     }
+  }
+
+  hr.card-divider {
+    background: $card-divider-color;
+    height: 1px;
+    border: 0;
+    margin: $card-divider-margin;
   }
 }

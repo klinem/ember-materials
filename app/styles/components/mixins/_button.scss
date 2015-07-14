@@ -33,3 +33,21 @@
     }
   }
 }
+
+@mixin collapse-button-variant($color, $hover, $active) {
+  .icon-bar, &::before, &::after {
+    background: $color;
+  }
+
+  &:hover {
+    .icon-bar, &::before, &::after {
+      background: $hover;
+    }
+  }
+
+  &.collapsed {
+    .icon-bar, &::before, &::after {
+      background: $active;
+    }
+  }
+}

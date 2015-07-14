@@ -1,7 +1,3 @@
-$collapse-btn-color:        font-color(caption) !default;
-$collapse-btn-hover-color:  darken($collapse-btn-color, 20%) !default;
-$collapse-btn-active-color: palette-color($primary-palette) !default;
-
 .md-collapse-btn {
   position: relative;
   display: inline-block;
@@ -10,7 +6,7 @@ $collapse-btn-active-color: palette-color($primary-palette) !default;
   @include reset-button();
 
   .icon-bar, &::before, &::after {
-    background: $collapse-btn-color;
+    background: currentColor;
     display: block;
     height: 2px;
     width: 18px;
@@ -18,7 +14,7 @@ $collapse-btn-active-color: palette-color($primary-palette) !default;
 
   &:hover {
     .icon-bar, &::before, &::after {
-      background: $collapse-btn-hover-color;
+      background: currentColor;
     }
   }
 
@@ -45,7 +41,7 @@ $collapse-btn-active-color: palette-color($primary-palette) !default;
 
   &.collapsed {
     .icon-bar, &::before, &::after {
-      background: $collapse-btn-active-color;
+      background: currentColor;
     }
 
     .icon-bar {

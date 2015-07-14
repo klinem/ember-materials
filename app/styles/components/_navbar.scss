@@ -51,6 +51,7 @@ $navbar-collapse-btn-padding:      floor(($navbar-height - 14px) / 2) 16px;
       line-height: $navbar-link-line-height;
       font-weight: $navbar-link-font-weight;
       font-size: $navbar-link-font-size;
+      position: relative;
       padding: $navbar-link-padding;
       display: block;
       float: left;

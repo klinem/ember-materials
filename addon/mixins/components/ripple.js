@@ -35,26 +35,37 @@ export default Ember.Mixin.create({
   initializeRipple: on('didInsertElement', function() {
     if (this.get('ripple') && this.get('rippleContainer')) {
 
-      let $container = Ember.$(`<div class="${this.get('rippleContainer')}" />`);
-      let $ripple    = Ember.$('<div class="md-ripple" />');
-
-      $container.append($ripple).appendTo(this.$());
-
-      let $element;
-      let element = this.get('rippleElement');
-
-      if (!element) {
-        $element = this.$();
-      } else if (Ember.typeOf(element) === 'string') {
-        $element = this.$(element);
-      } else {
-        $element = element;
-      }
+      let $ripple = this.createRipple();
+      let $element = this.getRippleElement();
 
       $element.on('mousedown touchstart', (e) => this.startRipple(e, $ripple[0]));
       $element.on('mouseup mouseleave touchend blur', (e) => this.endRipple(e, $ripple[0]));
     }
   }),
+
+  getRippleElement() {
+    let $element = null;
+    let element = this.get('rippleElement');
+
+    if (!element) {
+      $element = this.$();
+    } else if (Ember.typeOf(element) === 'string') {
+      $element = this.$(element);
+    } else {
+      $element = element;
+    }
+
+    return $element;
+  },
+
+  createRipple() {
+    let $container = Ember.$(`<div class="${this.get('rippleContainer')}" />`);
+    let $ripple    = Ember.$('<div class="md-ripple" />');
+
+    $container.append($ripple).appendTo(this.$());
+
+    return $ripple;
+  },
 
   startRipple(event, ripple) {
     if (!ripple.style.width && !ripple.style.height) {
