@@ -28,10 +28,9 @@
             {{/md-button}}
           </div>
           <div class="toolbar-group">
-            {{#link-to (query-params) class="md-btn default"}}
-              <span>Link</span>
-              {{md-ripple}}
-            {{/link-to}}
+            {{#md-link-button (query-params) class="default"}}
+              Link
+            {{/md-link-button}}
           </div>
           <div class="toolbar-group">
             {{#md-button class="default" disabled=true}}
@@ -61,10 +60,9 @@
             {{/md-button}}
           </div>
           <div class="toolbar-group">
-            {{#link-to (query-params) class="md-btn raised default"}}
-              <span>Link</span>
-              {{md-ripple}}
-            {{/link-to}}
+            {{#md-link-button "index" class="raised default"}}
+              Link
+            {{/md-link-button}}
           </div>
           <div class="toolbar-group">
             {{#md-button class="default raised" disabled=true}}
