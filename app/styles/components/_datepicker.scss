@@ -35,4 +35,29 @@
       display: table-cell;
     }
   }
+
+  .datepicker-calendar-day {
+    text-align: center;
+    font-size: 11px;
+    position: relative;
+    display: table-cell;
+    cursor: pointer;
+
+    > span {
+      line-height: 30px;
+      position: relative;
+      display: inline-block;
+      padding: 2px;
+      height: 30px;
+      width: 30px;
+    }
+
+    &.md-current {
+      color: palette-color($primary-palette, 500);
+    }
+
+    &.md-active {
+      font-weight: 600;
+    }
+  }
 }

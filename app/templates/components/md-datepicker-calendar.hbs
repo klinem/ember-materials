@@ -13,7 +13,7 @@
     {{#each weeks key="@index" as |week|}}
       <div class="datepicker-calendar-week">
         {{#each week key="@index" as |day|}}
-          <span>{{day}}</span>
+          {{md-datepicker-calendar-day date=day}}
         {{/each}}
       </div>
     {{/each}}

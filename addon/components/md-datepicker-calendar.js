@@ -46,50 +46,79 @@ export default Ember.Component.extend({
    * @property calendarYear
    * @type Number
    */
-  calendarYear: computed('currentDate', {
-    get() {
-      return get(this, 'currentDate').getFullYear();
-    }
+  calendarYear: computed('currentDate', function() {
+    return get(this, 'currentDate').getFullYear();
   }),
 
   /**
    * @property headerText
    * @type String
    */
-  headerText: computed('calendarYear', 'calendarMonth', {
-    get() {
-      const month = get(this, 'calendarMonth');
-      const year = get(this, 'calendarYear');
+  headerText: computed('calendarYear', 'calendarMonth', function() {
+    const month = get(this, 'calendarMonth');
+    const year = get(this, 'calendarYear');
 
-      return `${getMonthName(month)} ${year}`;
-    }
+    return `${getMonthName(month)} ${year}`;
   }),
 
   /**
    * @property displayDays
    */
-  displayDays: computed('startDay', {
-    get() {
-      const start = get(this, 'startDay');
-
-      return ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-    }
+  displayDays: computed('startDay', function() {
+    return ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
   }),
 
   weeks: computed('startDay', 'currentDate', function() {
-    const startDay = get(this, 'startDay');
-    const current = get(this, 'currentDate');
-    const startOfWeek = current.getDay();
-    const endOfMonth = 30;
+    const currentDate = get(this, 'currentDate');
+    const dateProps = this._getDateProperties(currentDate);
 
     let weeks = [];
-    let week = [];
-    let day = 1;
+    let days = [];
+    let daysInWeek;
+    let emptyDays;
+    let week;
 
-    
+    for(let i = 1; i <= dateProps.numberOfDays; i++) {
+      days.push(new Date(dateProps.year, dateProps.month, i));
+    }
+
+    while(days.length) {
+      daysInWeek = 7 - days[0].getDay(),
+      emptyDays = 7 - daysInWeek;
+
+      week = days.splice(0, daysInWeek);
+
+      for(let i = 0; i < emptyDays; i++) {
+        week.unshift(null);
+      }
+
+      weeks.push(week);
+    }
 
     return weeks;
-  })
+  }),
+
+  /**
+   * @method _getDateProperties
+   * @private
+   */
+  _getDateProperties(date) {
+    let month = date.getMonth();
+    let year = date.getFullYear();
+    let startOfMonth = new Date(year, month, 1);
+    let endOfMonth = new Date(year, month + 1, 0);
+    let startDayOfWeek = startOfMonth.getDay();
+
+    return {
+      month,
+      year,
+      endOfMonth,
+      startOfMonth,
+      startDayOfWeek,
+      numberOfDays: endOfMonth.getDate(),
+      numberOfWeeks: Math.ceil((startOfMonth.getDay() + endOfMonth.getDate()) / 7)
+    };
+  }
 });
 
 function getMonthName(month) {
