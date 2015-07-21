@@ -1,0 +1,21 @@
+<div class="datepicker-calendar-header">
+  <div class="datepicker-calendar-current">
+    {{headerText}}
+  </div>
+</div>
+<div class="datepicker-calendar-body">
+  <div class="datepicker-calendar-days-header">
+    {{#each displayDays key="@index" as |d|}}
+      <span>{{d}}</span>
+    {{/each}}
+  </div>
+  <div class="datepicker-calendar-days">
+    {{#each weeks key="@index" as |week|}}
+      <div class="datepicker-calendar-week">
+        {{#each week key="@index" as |day|}}
+          <span>{{day}}</span>
+        {{/each}}
+      </div>
+    {{/each}}
+  </div>
+</div>

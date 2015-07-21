@@ -1,0 +1,38 @@
+.md-datepicker-calendar {
+  .datepicker-calendar-body {
+    display: table;
+    width: 100%;
+  }
+
+  .datepicker-calendar-days-header {
+    display: table-row;
+    color: $black-light;
+  }
+
+  .datepicker-calendar-cell {
+
+  }
+
+  .datepicker-calendar-header {
+    text-align: center;
+    padding: 16px 0;
+
+    .datepicker-calendar-current {
+      font-weight: 500;
+    }
+  }
+
+  .datepicker-calendar-days {
+    display: table-row-group;
+  }
+
+  .datepicker-calendar-days-header, .datepicker-calendar-week {
+    display: table-row;
+
+    > span {
+      text-align: center;
+      font-size: 11px;
+      display: table-cell;
+    }
+  }
+}
