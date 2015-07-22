@@ -1,0 +1,20 @@
+{{#if hasBlockParams}}
+  {{yield this}}
+{{else}}
+  <div class="datepicker-header">
+    <div class="datepicker-header-day">
+      {{dateInfo.dayOfWeek}}
+    </div>
+    <div class="datepicker-header-info">
+      <span class="datepicker-info-month">{{dateInfo.month}}</span>
+      <span class="datepicker-info-date">{{dateInfo.date}}</span>
+      <span class="datepicker-info-year">{{dateInfo.year}}</span>
+    </div>
+  </div>
+
+  {{#if hasBlock}}
+    {{yield}}
+  {{else}}
+    {{md-datepicker-calendar currentDate=activeDate on-select=(action "setDate")}}
+  {{/if}}
+{{/if}}

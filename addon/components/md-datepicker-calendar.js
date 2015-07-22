@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { computed, get } = Ember;
+const { computed, get, typeOf } = Ember;
 
 export default Ember.Component.extend({
   /**
@@ -9,12 +9,6 @@ export default Ember.Component.extend({
    * @default ['md-datepicker-calendar']
    */
   classNames: ['md-datepicker-calendar'],
-
-  /**
-   * @property date
-   * @type Date
-   */
-  date: new Date(),
 
   /**
    * @property currentDate
@@ -83,7 +77,7 @@ export default Ember.Component.extend({
     }
 
     while(days.length) {
-      daysInWeek = 7 - days[0].getDay(),
+      daysInWeek = 7 - days[0].getDay();
       emptyDays = 7 - daysInWeek;
 
       week = days.splice(0, daysInWeek);
@@ -97,6 +91,50 @@ export default Ember.Component.extend({
 
     return weeks;
   }),
+
+  actions: {
+    /**
+     * @method incrementMonth
+     */
+    incrementMonth() {
+      return this._setMonth(1);
+    },
+
+    /**
+     * @method decrementMonth
+     */
+    decrementMonth() {
+      return this._setMonth(-1);
+    },
+
+    /**
+     * @method setDate
+     * @param {Date} date
+     */
+    setDate(date) {
+      if (!date || typeOf(date) !== 'date' || !this.attrs['on-select']) {
+        return null;
+      }
+
+      this.attrs['on-select'](date);
+    }
+  },
+
+  /**
+   * @method _setMonth
+   * @private
+   * @param {Number} change
+   * @returns self
+   */
+  _setMonth(change) {
+    let date = get(this, 'currentDate');
+
+    let newDate = new Date(date.getFullYear(), date.getMonth() + change, date.getDate());
+
+    this.set('currentDate', newDate);
+
+    return this;
+  },
 
   /**
    * @method _getDateProperties

@@ -66,19 +66,29 @@ export default Ember.Component.extend({
   }),
 
   /**
+   * @method click
+   */
+  click() {
+    const date = get(this, 'date');
+
+    if (date && this.attrs['on-click']) {
+      this.attrs['on-click'](date);
+    }
+  },
+
+  /**
    * @method _datesEqual
    * @private
    * @param {Date} d1
    * @param {Date} d2
    * @returns {Boolean}
    */
-   _datesEqual(d1, d2) {
-     if (!d1 || !d2 || typeOf(d1) !== 'date' || typeOf(d2) !== 'date') {
-       return false;
-     }
+  _datesEqual(d1, d2) {
+    if (!d1 || !d2 || typeOf(d1) !== 'date' || typeOf(d2) !== 'date') {
+      return false;
+    }
 
-     return (d1.getFullYear() === d2.getFullYear())
-       && (d1.getMonth() === d2.getMonth())
-       && (d1.getDate() === d2.getDate());
-   }
+    return ((d1.getFullYear() === d2.getFullYear()) &&
+     (d1.getMonth() === d2.getMonth()) && (d1.getDate() === d2.getDate()));
+  }
 });

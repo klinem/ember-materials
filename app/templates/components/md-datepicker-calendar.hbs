@@ -1,7 +1,9 @@
 <div class="datepicker-calendar-header">
+  <span class="datepicker-prev" {{action "decrementMonth"}}></span>
   <div class="datepicker-calendar-current">
     {{headerText}}
   </div>
+  <span class="datepicker-next" {{action "incrementMonth"}}></span>
 </div>
 <div class="datepicker-calendar-body">
   <div class="datepicker-calendar-days-header">
@@ -13,7 +15,7 @@
     {{#each weeks key="@index" as |week|}}
       <div class="datepicker-calendar-week">
         {{#each week key="@index" as |day|}}
-          {{md-datepicker-calendar-day date=day}}
+          {{md-datepicker-calendar-day date=day on-click=(action "setDate")}}
         {{/each}}
       </div>
     {{/each}}

@@ -1,3 +1,49 @@
+.md-datepicker {
+  .datepicker-header {
+    background: palette-color($primary-palette);
+    cursor: default;
+
+    @include user-select(none);
+
+    .datepicker-header-day {
+      background: palette-color($primary-palette, 700);
+      text-align: center;
+      font-weight: 500;
+      padding: 4px 0;
+      color: #fff;
+    }
+
+    .datepicker-header-info {
+      text-align: center;
+      padding: 12px 0;
+      color: #fff;
+
+      .datepicker-info-month, .datepicker-info-year, .datepicker-info-date {
+        text-align: center;
+        line-height: 1.1;
+        display: block;
+      }
+
+      .datepicker-info-month, .datepicker-info-year {
+        font-size: 20px;
+      }
+
+      .datepicker-info-month {
+        text-transform: uppercase;
+      }
+
+      .datepicker-info-year {
+        opacity: 0.8;
+      }
+
+      .datepicker-info-date {
+        font-size: 48px;
+      }
+    }
+  }
+}
+
+
 .md-datepicker-calendar {
   .datepicker-calendar-body {
     display: table;
@@ -5,21 +51,13 @@
   }
 
   .datepicker-calendar-days-header {
+    font-weight: 500;
     display: table-row;
     color: $black-light;
   }
 
   .datepicker-calendar-cell {
 
-  }
-
-  .datepicker-calendar-header {
-    text-align: center;
-    padding: 16px 0;
-
-    .datepicker-calendar-current {
-      font-weight: 500;
-    }
   }
 
   .datepicker-calendar-days {
@@ -58,6 +96,47 @@
 
     &.md-active {
       font-weight: 600;
+    }
+  }
+}
+
+.datepicker-calendar-header {
+  line-height: 24px;
+  text-align: center;
+  position: relative;
+  padding: 16px 0;
+
+  @include user-select(none);
+
+  .datepicker-calendar-current {
+    font-weight: 500;
+    display: inline-block;
+  }
+
+  .datepicker-next, .datepicker-prev {
+    position: absolute;
+    cursor: pointer;
+
+
+    &:after {
+      vertical-align: middle;
+      line-height: 24px;
+    }
+  }
+
+  .datepicker-next {
+    right: 0;
+
+    &::after {
+      @include md-icon('chevron_right', 24px);
+    }
+  }
+
+  .datepicker-prev {
+    left: 0;
+
+    &::after {
+      @include md-icon('chevron_left', 24px);
     }
   }
 }
