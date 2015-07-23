@@ -15,6 +15,6 @@
   {{#if hasBlock}}
     {{yield}}
   {{else}}
-    {{md-datepicker-calendar currentDate=activeDate on-select=(action "setDate")}}
+    {{md-datepicker-calendar date=activeDate on-select=(action "setDate")}}
   {{/if}}
 {{/if}}

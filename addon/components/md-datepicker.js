@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import DateUtil from 'ember-materials/utils/date-util';
+import dateUtil from 'ember-materials/utils/date-util';
 
 const { get, computed, typeOf } = Ember;
 
@@ -43,8 +43,8 @@ export default Ember.Component.extend({
     return {
       date: date.getDate(),
       year: date.getFullYear(),
-      month: DateUtil.monthShortName(date),
-      dayOfWeek: DateUtil.weekDayName(date)
+      month: dateUtil.monthShortName(date),
+      dayOfWeek: dateUtil.weekDayName(date)
     };
   }),
 
@@ -57,7 +57,7 @@ export default Ember.Component.extend({
       if (!date || typeOf(date) !== 'date') {
         return null;
       }
-
+      
       this.set('date', date);
     }
   }

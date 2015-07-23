@@ -53,7 +53,7 @@ test('it should be able to go to the next month', function(assert) {
 
   text = $header.text().trim();
   assert.ok($header.text().indexOf('January 2016') !== -1,
-    `Expected the calendar header to contain the text 'January 2016', got '${text}'`)
+    `Expected the calendar header to contain the text 'January 2016', got '${text}'`);
 });
 
 test('it should be able to go to the previous month', function(assert) {
@@ -81,5 +81,5 @@ test('it should be able to go to the previous month', function(assert) {
 
   text = $header.text().trim();
   assert.ok($header.text().indexOf('December 2015') !== -1,
-    `Expected the calendar header to contain the text 'December 2015', got '${text}'`)
+    `Expected the calendar header to contain the text 'December 2015', got '${text}'`);
 });

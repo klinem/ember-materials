@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import dateUtil from 'ember-materials/utils/date-util';
 
 const { computed, get, typeOf } = Ember;
 
@@ -30,10 +31,8 @@ export default Ember.Component.extend({
    * @property calendarMonth
    * @type Number
    */
-  calendarMonth: computed('currentDate', {
-    get() {
-      return get(this, 'currentDate').getMonth();
-    }
+  calendarMonth: computed('currentDate', function() {
+    return get(this, 'currentDate').getMonth();
   }),
 
   /**
@@ -52,7 +51,7 @@ export default Ember.Component.extend({
     const month = get(this, 'calendarMonth');
     const year = get(this, 'calendarYear');
 
-    return `${getMonthName(month)} ${year}`;
+    return `${dateUtil.monthName(month)} ${year}`;
   }),
 
   /**
@@ -91,6 +90,12 @@ export default Ember.Component.extend({
 
     return weeks;
   }),
+
+  didReceiveAttrs() {
+    if (this.attrs.date && typeOf(this.attrs.date) === 'date') {
+      this.set('currentDate', this.attrs.date);
+    }
+  },
 
   actions: {
     /**
@@ -158,8 +163,3 @@ export default Ember.Component.extend({
     };
   }
 });
-
-function getMonthName(month) {
-  return ['January', 'February', 'March', 'April', 'May', 'June', 'July',
-    'August', 'September', 'October', 'November', 'December'][month];
-}

@@ -2,11 +2,15 @@ import Ember from 'ember';
 
 const { typeOf } = Ember;
 
-const MONTH_NAMES = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July',
-  'August', 'September', 'October', 'December'];
+const MONTH_NAMES = [
+  'January', 'February', 'March',
+  'April',   'May',      'June',
+  'July',    'August',   'September',
+  'October', 'November', 'December'
+];
 
-const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
-  'Saturday'];
+const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
+  'Thursday', 'Friday', 'Saturday'];
 
 export function monthName(month) {
   if (month === undefined || month === null) {
@@ -18,7 +22,7 @@ export function monthName(month) {
   }
 
   return MONTH_NAMES[month];
-};
+}
 
 export function monthShortName(month) {
   let name = monthName(month);
