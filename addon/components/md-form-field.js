@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { computed, on } = Ember;
+const { computed, typeOf } = Ember;
 
 export default Ember.Component.extend({
   classNames: ['md-form-group', 'js-form-group'],
@@ -51,16 +51,24 @@ export default Ember.Component.extend({
   }),
 
   /**
-   * @method initializeListeners
+   * @method focusIn
    */
-  initializeListeners: on('didInsertElement', function() {
-    this.$('input, textarea').on('focus blur', () => this.toggleFocus());
-  }),
+  focusIn() {
+    this.set('isFocused', true);
+
+    if (this.attrs['on-focus'] && typeOf(this.attrs['on-focus']) === 'function') {
+      this.attrs['on-focus']();
+    }
+  },
 
   /**
-   * @method toggleFocus
+   * @method focusOut
    */
-  toggleFocus() {
-    this.toggleProperty('isFocused');
+  focusOut() {
+    this.set('isFocused', false);
+
+    if (this.attrs['on-blur'] && typeOf(this.attrs['on-blur']) === 'function') {
+      this.attrs['on-blur']();
+    }
   }
 });

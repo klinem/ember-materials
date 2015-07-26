@@ -1,5 +1,6 @@
 import hbs from 'htmlbars-inline-precompile';
 import { moduleForComponent, test } from 'ember-qunit';
+import Ember from 'ember';
 
 moduleForComponent('md-form-field', 'Integration | Component | md form field', {
   // Specify the other units that are required for this test
@@ -47,6 +48,20 @@ test('it should render the label with the correct `for` attribute', function(ass
   assert.equal(this.$('label').attr('for'), `field-${$id}`);
 });
 
-test('it should add focused class to the form-group', function(assert) {
+test('it should toggle the `md-focused` class on the form-group', function(assert) {
   assert.expect(0);
+  
+  this.set('actions', {
+    onFocus() {
+      assert.ok(true);
+    }
+  });
+
+  this.render(hbs`
+    {{md-form-field on-focus=(action "onFocus")}}
+  `);
+
+  let $input = this.$('input');
+
+  this.$('.md-form-group').trigger(new Ember.$.Event('focus'));
 });
