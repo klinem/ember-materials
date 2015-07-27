@@ -20,9 +20,12 @@ export default Ember.Component.extend(RippleMixin, {
 
   click() {
     if (this.attrs.onClick) {
+      Ember.deprecate('Binding an action to `onClick` is deprecated. Please use `on-click` instead.', false);
       this.attrs.onClick();
+    } else if (this.attrs['on-click']) {
+      this.attrs['on-click']();
     }
-    
+
     return true;
   }
 });

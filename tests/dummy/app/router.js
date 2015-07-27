@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('checkboxes');
     this.route('collapse');
     this.route('datepicker');
+    this.route('dropdowns');
     this.route('navbar');
     this.route('modals');
     this.route('dialogs');

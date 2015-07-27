@@ -1,0 +1,32 @@
+.md-dropdown-container {
+  position: relative;
+}
+
+.md-dropdown-menu {
+  box-shadow: $shadow-depth-2;
+  background: #ffffff;
+  min-width: 240px;
+  visibility: hidden;
+  position: absolute;
+  z-index: 100;
+  opacity: 0;
+  left: 0;
+  top: 0;
+
+  @include transition(opacity 150ms ease 10ms);
+
+  .dropdown-menu-content {
+    padding: 4px 0;
+
+    .dropdown-menu-item {
+      display: block;
+    }
+  }
+}
+
+.md-dropdown-container.md-in {
+  .md-dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+  }
+}

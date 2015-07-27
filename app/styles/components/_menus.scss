@@ -1,0 +1,10 @@
+.md-menu-item {
+  position: relative;
+  padding: 8px;
+  display: block;
+  cursor: pointer;
+
+  .md-ripple {
+    background: rgba(#000, 0.2);
+  }
+}
