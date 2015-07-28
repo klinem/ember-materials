@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { get, typeOf } = Ember;
+const { typeOf } = Ember;
 
 export default Ember.TextField.extend({
   /**

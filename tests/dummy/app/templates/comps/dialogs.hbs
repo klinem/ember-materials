@@ -6,9 +6,9 @@
   <div class="doc-example">
     <div class="md-card">
       <div class="card-body">
-        <button class="md-btn primary" {{action "toggle"}}>
+        {{#md-button class="primary" on-click=(action "toggle")}}
           Show
-        </button>
+        {{/md-button}}
         {{#md-dialog show=showDialog onCancel=(action "cancel") onConfirm=(action "confirm")}}
           Word.
         {{/md-dialog}}

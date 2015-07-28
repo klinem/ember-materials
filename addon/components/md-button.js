@@ -14,6 +14,13 @@ export default Ember.Component.extend(RippleMixin, {
     'type',
   ],
 
+  /**
+   * @property type
+   * @type String
+   * @default button
+   */
+  type: 'button',
+  
   ariaDisabled: computed('disabled', function() {
     return !!this.get('disabled') ? true : null;
   }),
